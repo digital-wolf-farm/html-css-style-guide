@@ -21,7 +21,7 @@ This style guide is prepared for using with CSS linter [stylelint.io](https://st
 ## Installation
 
 1. Install `stylelint` locally with command `npm install stylelint --save-dev`;
-2. Add scripts to `package.json` file examples for linting all `SCSS` files inside `src` directory:
+2. Add proper scripts to `package.json` file (examples shown below are for linting all `SCSS` files inside `src` directory):
   * `"stylelint": "stylelint \"src/**/*.scss\" --syntax scss"` for starting `stylelint`;
   * `"stylelint-fix": "stylelint \"src/**/*.scss\" --syntax scss --fix"` for starting `stylelint` with auto fixing for available rules - see [documentation](https://stylelint.io/user-guide/rules);
 3. Copy file `.stylelintrc.json` to directory where `package.json` file is located;
