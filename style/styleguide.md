@@ -13,9 +13,9 @@ Rules are provided for usage with `stylelint` npm package.
     * Many stylesheets used for easier development should be compiled into one file, then imported in template in production environment
     * JS shouldn't add any styles. Responsible of logic layer is only to add/remove class styled in a stylesheet to/from template element as a reaction to an event
 
-    >Why?  
-    >* It makes project easy to develop, read and maintain - see next point.  
-    >* Project is consistent with separation of concerns design principle.
+>Why?  
+>* It makes project easy to develop, read and maintain - see next point.  
+>* Project is consistent with separation of concerns design principle.
 
 2. Every rule described here is aimed at time saving and ease of starting with project, its development even after long time, adding new functionality, cooperation with other memebers of team,understanding of developer intentions and fixing bugs. Since now, this reason of adding a new rule will be ommited as obvious in "Why?" sections.
 
