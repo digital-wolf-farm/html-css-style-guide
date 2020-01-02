@@ -42,30 +42,30 @@ It's important to choose one before start of development and stick to it until e
 
     * Empty files are not allowed - rule: `"no-empty-source": true`
 
-    > Why?  
-    > Empty files should be removed from repo to be not misleading for future development and don't litter project. This rule doesn't apply to starter packs.
+        > Why?  
+        > Empty files should be removed from repo to be not misleading for future development and don't litter project. This rule doesn't apply to starter packs.
 
     * First line of stylesheet cannot be empty - rule: `"no-empty-first-line": true`
     * Empty new line must be added at the end of file - rule: `"no-missing-end-of-source-newline": true`
     * Only one adjacent empty line is allowed - rule: `"max-empty-lines": 1`
     * Indentation equals to 4 spaces - rule: `"indentation": 4`
 
-    > Why? 
-    > Stylesheet should concise but visually divided into parts vertically and horizontally
+        > Why? 
+        > Stylesheet should concise but visually divided into parts vertically and horizontally.
 
     * Max line lenght equals to 80 signs - rule: `"max-line-length": 80`
     * No whitespace at the end of line is allowed - rule: `"no-eol-whitespace": true`
 
-    > Why?  
-    > Shorter line length allows to open two stylesheets side by side on screen without scroll or moving some part of code into the next line
+        > Why?  
+        > Shorter line length allows to open two stylesheets side by side on screen without scroll or moving some part of code into the next line.
 
 2. Stylesheet settings
 
     * Linebreaks are expected to be LF (\n) - rule: `"linebreaks": "unix"`
     * Unicode Byte Order Mark is not allowed in stylesheet - rule: `"unicode-bom": "never"`
 
-    > Why?  
-    > **TODO**
+        > Why?  
+        > **TODO**
 
 3. **Move to declaration rule part** Only required semicolons are allowed - rule: `"no-extra-semicolons": true`
 
