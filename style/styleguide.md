@@ -33,9 +33,10 @@ File `.stylelintrc.json` contains rules in the same order as described in this s
 2. In small projects dividing stylesheet into separate files could be done when reach some number of lines and is hard to navigate. Big projects starts with defined division.
 3. Code could be organized with custom rules or with chosen methodology:
     * Sass 7-1
-    * SMACSS (used in my projects)
-    * **TODO: Add more**  
+    * SMACSS (used in my projects) 
 It's important to choose one before start of development and stick to it until end of project life time.
+
+**TODO: Add more methodologies and develop this section**
 
 ## 3. General stylesheet rules
 
@@ -52,7 +53,7 @@ It's important to choose one before start of development and stick to it until e
     * I found indentation equals to 4 spaces as more readable - rule: `"indentation": 4`.
     * Styles are not expanded as JavaScript code, so 80 characters of line lenght is enough and allow to open to stylesheets next to each other on average screen without scrolling - rule: `"max-line-length": 80`.
     * No whitespace at the end of line is allowed - rule: `"no-eol-whitespace": true`.
-    * Nesting of rulesets introduced by Sass is nice feature which save a lot of code but in practice it should be avoided as introducing non reusable classes, non modular architecture and long selectors in output CSS files. Whole nested rulesets should as well be visible on screen to avoid poor readability. It should be used only with pseudo-classes, pseudo-elements and media queries. More about nesting in another sections. As general rule should be agreed max level of nesting limited to 2 (at-rules e.g. media queries aren't taken into this limit) - rule: `"max-nesting-depth": 2`.
+    * Nesting of rulesets introduced by Sass is nice feature which save a lot of code but in practice it should be avoided as introducing non reusable classes, non modular architecture and long selectors in output CSS files. Whole nested rulesets should as well be visible on screen to avoid poor readability. It should be used only with pseudo-classes, pseudo-elements and media queries. More about nesting in another sections. As general rule should be agreed max level of nesting limited to 2 (see: examples) - rule: `"max-nesting-depth": 2`.
 
     Example of nesting rulesets:
     ```css
