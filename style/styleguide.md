@@ -33,7 +33,7 @@ File `.stylelintrc.json` contains rules in the same order as described in this s
 2. In small projects dividing stylesheet into separate files could be done when reach some number of lines and is hard to navigate. Big projects starts with defined division.
 3. Code could be organized with custom rules or with chosen methodology:
     * Sass 7-1
-    * SMACSS (used in my projects) 
+    * SMACSS (used in my projects)  
 It's important to choose one before start of development and stick to it until end of project life time.
 
 **TODO: Add more methodologies and develop this section**
