@@ -43,8 +43,6 @@ It's important to choose one before start of development and stick to it until e
     * Unicode Byte Order Mark should not be added in stylesheet as CSS files are read as UTF-8 by default by browsers - rule: `"unicode-bom": "never"`.
     * Depending on system which developer is working on different version of line-ending should be set. For Linux and macOS it's LF, while for Windows it's CRLF - rule: `"linebreaks": "windows"`.
 
-**All rule concerning case of names**
-
 2. Structure of stylesheet file
 
     * Except starter packs or presenting structure of project, there shouldn't be empty files in repository. Leaving such files could make it hard to understand project in the future - rule: `"no-empty-source": true`.
@@ -52,11 +50,65 @@ It's important to choose one before start of development and stick to it until e
     * Stylesheet should be ended with a new line - rule: `"no-missing-end-of-source-newline": true`.
     * One adjacent empty line is enough to divide visually code into parts - rule: `"max-empty-lines": 1`.
     * I found indentation equals to 4 spaces as more readable - rule: `"indentation": 4`.
-    * Styles are not expanded as JavaScript code, so 80 characters of line lenght is enough and allow to open to stylesheets next to each other on average screen without scrolling - rule: `"max-line-length": 80`
-    * No whitespace at the end of line is allowed - rule: `"no-eol-whitespace": true`
+    * Styles are not expanded as JavaScript code, so 80 characters of line lenght is enough and allow to open to stylesheets next to each other on average screen without scrolling - rule: `"max-line-length": 80`.
+    * No whitespace at the end of line is allowed - rule: `"no-eol-whitespace": true`.
+    * Nesting of rulesets introduced by Sass is nice feature which save a lot of code but in practice it should be avoided as introducing non reusable classes, non modular architecture and long selectors in output CSS files. Whole nested rulesets should as well be visible on screen to avoid poor readability. It should be used only with pseudo-classes, pseudo-elements and media queries. More about nesting in another sections. As general rule should be agreed max level of nesting limited to 2 (at-rules e.g. media queries aren't taken into this limit) - rule: `"max-nesting-depth": 2`.
 
-**max-nesting-depth**  
-**Commenting files, tables of content**
+    Example of nesting rulesets:
+    ```css
+    .class-1 {
+        .class-2 { <- 1st level of nesting
+            p { <- 2nd level of nesting
+                color: #fef;
+                font-size: 16px;
+            }
+        }
+    }
+
+    .class-3 {
+        @media screen and (min-width: 1024px) { <- 1st level of nesting
+            p { <- 2nd level of nesting
+                color: #fef;
+                font-size: 16px;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1024px) { <- ignored media query at root level
+        .class-4 {
+            p { <- 1st level of nesting
+                color: #fef;
+                font-size: 16px;
+            }
+        }
+    }
+    ```
+
+3. Writing code
+
+    * All names should be written in lowercase with hyphens (except selectors in BEM methodology) - rules:  
+        `"at-rule-name-case": "lower"`  
+        `"color-hex-case": "lower"`  
+        `"function-name-case": "lower"`  
+        `"media-feature-name-case": "lower"`  
+        `"property-case": "lower"`  
+        `"selector-pseudo-class-case": "lower"`  
+        `"selector-pseudo-element-case": "lower"`  
+        `"selector-type-case": "lower"`  
+        `"unit-case": "lower"`  
+        `"value-keyword-case": "lower"`.
+
+4. Documenting code
+
+    * CSS is a markup language which doesn't document itself. When taken into consideration different browser support with their quirks, all hacks to get desired effect displayed, proper documentation of code is necessary.
+    * It's a good practice to start all stylesheets, when style is divided into files, with short note of content of the file.
+    * Parts of file containing styles applying to different elements should also be divided by at least titles into sections.
+    * All unclear code, hacks, browser support should be commented.
+    * More about format and rules concerning comments in coming section.
+
+5. Naming elements
+
+**TODO: DEVELOP**
 
 ## 4. Structure of CSS ruleset
 
@@ -78,13 +130,16 @@ p {
 
 Declaration block could concern selector or selectors list. When there is more than one selector in ruleset, they are separated by comma.  
 Declaration block wrap declarations with curly braces. No semi-colon after closing brace.  
-Declarations are separated by semi-colons. Last one is optional but suggested to be added.  
+Declarations are separated by semi-colons.  
 Colon separates property and its value.
 
 ## 5. Rulesets
 
-no-extra-semicolons
-rule-empty-line-before
+1. General rules
+    * Semi-colons in CSS have strict destination. They separate declarations. Semi-colon after last declaration within ruleset could be omitted but it strongly advised to put it there always. Nowhere else in any stylesheet additional semi-colon should be added - rule: `"no-extra-semicolons": true`.
+    * Between adjacent rulsets, there should be always an empty line - rule: `"rule-empty-line-before": "always-multi-line"`
+
+**TODO: Check rule-empty-line-before rule and exceptions**
 
 ## 6. Selectors
 
@@ -123,11 +178,8 @@ selector-attribute-quotes
 selector-combinator-space-after
 selector-combinator-space-before
 selector-descendant-combinator-no-non-space
-selector-pseudo-class-case
 selector-pseudo-class-parentheses-space-inside
-selector-pseudo-element-case
 selector-pseudo-element-colon-notation
-selector-type-case
 selector-list-comma-newline-after
 selector-list-comma-newline-before
 selector-list-comma-space-after
@@ -178,8 +230,8 @@ property-blacklist
 property-whitelist
 property-no-vendor-prefix
 custom-property-empty-line-before
-property-case
 
+**Nesting properties in Sass is not allowed**
 **Properties order**
 
 ## 10. Values
@@ -191,7 +243,6 @@ value-no-vendor-prefix
 number-leading-zero
 number-no-trailing-zeros
 string-quotes
-value-keyword-case
 value-list-comma-newline-after
 value-list-comma-newline-before
 value-list-comma-space-after
@@ -204,14 +255,12 @@ unit-no-unknown
 unit-blacklist
 unit-whitelist
 length-zero-no-unit
-unit-case
 
 ## 12. Colour
 
 color-no-invalid-hex
 color-named
 color-no-hex
-color-hex-case
 color-hex-length
 
 ## 13. Text
@@ -238,7 +287,6 @@ at-rule-whitelist
 at-rule-no-vendor-prefix
 at-rule-property-requirelist
 at-rule-empty-line-before
-at-rule-name-case
 at-rule-name-newline-after
 at-rule-name-space-after
 at-rule-semicolon-newline-after
@@ -259,7 +307,6 @@ function-comma-newline-before
 function-comma-space-after
 function-comma-space-before
 function-max-empty-lines
-function-name-case
 function-parentheses-newline-inside
 function-parentheses-space-inside
 function-url-quotes
@@ -275,7 +322,6 @@ media-feature-name-value-whitelist
 custom-media-pattern
 media-feature-colon-space-after
 media-feature-colon-space-before
-media-feature-name-case
 media-feature-parentheses-space-inside
 media-feature-range-operator-space-after
 media-feature-range-operator-space-before
@@ -290,4 +336,4 @@ keyframe-declaration-no-important
 keyframes-name-pattern
 no-unknown-animations
 
-**Sass specific rules - decide where to set**
+**Sass specific rules: mixins, nesting, variables - decide where to set**
