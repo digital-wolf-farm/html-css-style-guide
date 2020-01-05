@@ -55,41 +55,40 @@ It's important to choose one before start of development and stick to it until e
     * No whitespace at the end of line is allowed - rule: `"no-eol-whitespace": true`.
     * Nesting of rulesets introduced by Sass is nice feature which save a lot of code but in practice it should be avoided as introducing non reusable classes, non modular architecture and long selectors in output CSS files. Whole nested rulesets should as well be visible on screen to avoid poor readability. It should be used only with pseudo-classes, pseudo-elements and media queries. More about nesting in another sections. As general rule should be agreed max level of nesting limited to 2 (see: examples) - rule: `"max-nesting-depth": 2`.
 
-    Example of nesting rulesets:
-    ```css
-    .class-1 {
-        .class-2 { <- 1st level of nesting
-            p { <- 2nd level of nesting
-                color: #fef;
-                font-size: 16px;
+        Example of nesting rulesets:
+        ```css
+        .class-1 {
+            .class-2 { <- 1st level of nesting
+                p { <- 2nd level of nesting
+                    color: #fef;
+                    font-size: 16px;
+                }
             }
         }
-    }
 
-    .class-3 {
-        @media screen and (min-width: 1024px) { <- 1st level of nesting
-            p { <- 2nd level of nesting
-                color: #fef;
-                font-size: 16px;
+        .class-3 {
+            @media screen and (min-width: 1024px) { <- 1st level of nesting
+                p { <- 2nd level of nesting
+                    color: #fef;
+                    font-size: 16px;
+                }
             }
         }
-    }
 
-    @media screen and (min-width: 1024px) { <- ignored media query at root level
-        .class-4 {
-            p { <- 1st level of nesting
-                color: #fef;
-                font-size: 16px;
+        @media screen and (min-width: 1024px) { <- ignored media query at root level
+            .class-4 {
+                p { <- 1st level of nesting
+                    color: #fef;
+                    font-size: 16px;
+                }
             }
         }
-    }
-    ```
+        ```
 
 3. Writing code
 
     * All names should be written in lowercase with hyphens (except selectors in BEM methodology) - rules:  
-        `"at-rule-name-case": "lower"`  
-        `"color-hex-case": "lower"`  
+        `"at-rule-name-case": "lower"`    
         `"function-name-case": "lower"`  
         `"media-feature-name-case": "lower"`  
         `"property-case": "lower"`  
@@ -260,23 +259,53 @@ value-list-max-empty-lines
 
 ## 11. Units
 
-unit-blacklist
-unit-whitelist
-length-zero-no-unit
+1. Unit black-/whitelist
+    * There is do defined black-/whitelist of available units - rules NOT USED:  
+        `"unit-blacklist": []`   
+        `"unit-whitelist": []`. 
+2. Value - unit pairs
+    * Zero length value (em, ex, ch, vw, vh, cm, mm, in, pt, pc, px, rem, vmin, and vmax) must be written without unit - rule: `"length-zero-no-unit": true`.  
+    
+        Example:
+        ```css
+        .class-name {
+            margin: 0;
+            padding: 0 1rem;
+        }
+        ```
 
-## 12. Colour
+## 12. Colours
 
-color-no-invalid-hex
-color-named
-color-no-hex
-color-hex-length
+1. Coding colours
+    * There should be used hsl()/hsla() function to set colours in stylesheets. This is easiest way for colour to be recognized as only one variable - angle of colour circle must be known. Second way to set colour for elements is to use rgb()/rgba() function. However, this function make matching code with rendered colour a lot harder. Hex or named colours in stylesheets are not welcomed - rules:  
+        `"color-named": "never"`  
+        `"color-no-hex": true`.  
+    
+        NOT USED rules, as hex colours are not allowed:  
+        `"color-hex-length": "long"`  
+        `"color-hex-case": "lower"`  
+        `"color-no-invalid-hex": true`.
 
 ## 13. Text
 
-font-family-no-duplicate-names
-font-family-no-missing-generic-family-keyword
-font-family-name-quotes
-font-weight-notation
+1. Coding fonts properties:
+    * Value for `font-family` property has to contain generic families (e.g. serif, monospace) added at the end of list - rule: `"font-family-no-missing-generic-family-keyword": true`.
+    * **TODO: font-family-name-quotes**
+    * Stylelint provides rule to disallow adding repeated font family names - rule: `"font-family-no-duplicate-names": true`.
+    * Browsers could interpate named values in different ways, so properties as `font-weight` should have numeric values instead of named - rule: `"font-weight-notation": "numeric"`.
+
+        Example:
+        ```css
+        .proper-example {
+            font-family: "MySuperFont", "Times New Roman", Times serif;
+            font-weight: 400;
+        }
+
+        .wrong-example {
+            font-family: MySuperFont, Times New Roman, Times, Times;
+            font-weight: normal;
+        }
+        ```
 
 ## 14. Comments
 
