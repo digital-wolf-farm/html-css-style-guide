@@ -106,7 +106,13 @@ It's important to choose one before start of development and stick to it until e
         `"selector-pseudo-class-no-unknown": true`  
         `"selector-pseudo-element-no-unknown": true`  
         `"selector-type-no-unknown": true`  
-        `"unit-no-unknown": true`
+        `"unit-no-unknown": true`.
+    * Code written by developer shouldn't contain any vendor prefixes. As they are no longer recommended by W3C for new features and browsers dynamically changes it usage, adding prefixes should be reffered to automatic tools which base on updated database of support of available features - rules:  
+        `"at-rule-no-vendor-prefix": true`  
+        `"media-feature-name-no-vendor-prefix": true`  
+        `"property-no-vendor-prefix": true`  
+        `"selector-no-vendor-prefix": true`  
+        `"value-no-vendor-prefix": true`
 
 4. Documenting code
 
@@ -155,10 +161,10 @@ Colon separates property and its value.
 
 no-descending-specificity
 no-duplicate-selectors
+selector-id-pattern
 selector-class-pattern
 selector-combinator-blacklist
 selector-combinator-whitelist
-selector-id-pattern
 selector-max-attribute
 selector-max-class
 selector-max-combinators
@@ -171,7 +177,6 @@ selector-max-type
 selector-max-universal
 selector-nested-pattern
 selector-no-qualifying-type
-selector-no-vendor-prefix
 selector-attribute-operator-blacklist
 selector-attribute-operator-whitelist
 selector-attribute-brackets-space-inside
@@ -234,7 +239,6 @@ shorthand-property-no-redundant-values
 custom-property-pattern
 property-blacklist
 property-whitelist
-property-no-vendor-prefix
 custom-property-empty-line-before
 
 **Nesting properties in Sass is not allowed**
@@ -245,7 +249,6 @@ custom-property-empty-line-before
 string-no-newline
 number-max-precision
 time-min-milliseconds
-value-no-vendor-prefix
 number-leading-zero
 number-no-trailing-zeros
 string-quotes
@@ -288,7 +291,6 @@ comment-whitespace-inside
 no-duplicate-at-import-rules
 at-rule-blacklist
 at-rule-whitelist
-at-rule-no-vendor-prefix
 at-rule-property-requirelist
 at-rule-empty-line-before
 at-rule-name-newline-after
@@ -320,7 +322,6 @@ function-whitespace-after
 
 media-feature-name-blacklist
 media-feature-name-whitelist
-media-feature-name-no-vendor-prefix
 media-feature-name-value-whitelist
 custom-media-pattern
 media-feature-colon-space-after
