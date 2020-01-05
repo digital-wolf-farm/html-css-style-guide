@@ -98,6 +98,15 @@ It's important to choose one before start of development and stick to it until e
         `"selector-type-case": "lower"`  
         `"unit-case": "lower"`  
         `"value-keyword-case": "lower"`.
+    * It's important to check spelling errors in names used in stylesheets. While class or id names requires checking by developer manually, usage of valid and known type selectors, units, properties, etc. could be check by tools. Using known structures, names makes code easy to understand. All other things should be commented - see: `4. Documenting code` - rules:  
+        `"at-rule-no-unknown": true`  
+        `"media-feature-name-no-unknown": true`  
+        `"no-unknown-animations": true`  
+        `"property-no-unknown": true`  
+        `"selector-pseudo-class-no-unknown": true`  
+        `"selector-pseudo-element-no-unknown": true`  
+        `"selector-type-no-unknown": true`  
+        `"unit-no-unknown": true`
 
 4. Documenting code
 
@@ -144,13 +153,8 @@ Colon separates property and its value.
 
 ## 6. Selectors
 
-selector-pseudo-class-no-unknown
-selector-pseudo-element-no-unknown
-selector-type-no-unknown
 no-descending-specificity
 no-duplicate-selectors
-selector-attribute-operator-blacklist
-selector-attribute-operator-whitelist
 selector-class-pattern
 selector-combinator-blacklist
 selector-combinator-whitelist
@@ -168,19 +172,21 @@ selector-max-universal
 selector-nested-pattern
 selector-no-qualifying-type
 selector-no-vendor-prefix
-selector-pseudo-class-blacklist
-selector-pseudo-class-whitelist
-selector-pseudo-element-blacklist
-selector-pseudo-element-whitelist
+selector-attribute-operator-blacklist
+selector-attribute-operator-whitelist
 selector-attribute-brackets-space-inside
 selector-attribute-operator-space-after
 selector-attribute-operator-space-before
 selector-attribute-quotes
+selector-pseudo-class-blacklist
+selector-pseudo-class-whitelist
+selector-pseudo-class-parentheses-space-inside
+selector-pseudo-element-blacklist
+selector-pseudo-element-whitelist
+selector-pseudo-element-colon-notation
 selector-combinator-space-after
 selector-combinator-space-before
 selector-descendant-combinator-no-non-space
-selector-pseudo-class-parentheses-space-inside
-selector-pseudo-element-colon-notation
 selector-list-comma-newline-after
 selector-list-comma-newline-before
 selector-list-comma-space-after
@@ -188,24 +194,24 @@ selector-list-comma-space-before
 
 ## 7. Declaration blocks
 
+block-no-empty
 declaration-block-no-duplicate-properties
 declaration-block-no-shorthand-property-overrides
-block-no-empty
 declaration-block-single-line-max-declarations
 declaration-block-semicolon-newline-after
 declaration-block-semicolon-newline-before
 declaration-block-semicolon-space-after
 declaration-block-semicolon-space-before
 declaration-block-trailing-semicolon
+block-opening-brace-newline-after
+block-opening-brace-newline-before
+block-opening-brace-space-after
+block-opening-brace-space-before
 block-closing-brace-empty-line-before
 block-closing-brace-newline-after
 block-closing-brace-newline-before
 block-closing-brace-space-after
 block-closing-brace-space-before
-block-opening-brace-newline-after
-block-opening-brace-newline-before
-block-opening-brace-space-after
-block-opening-brace-space-before
 
 ## 8. Declarations
 
@@ -224,7 +230,6 @@ declaration-empty-line-before
 
 ## 9. Properties
 
-property-no-unknown
 shorthand-property-no-redundant-values
 custom-property-pattern
 property-blacklist
@@ -252,7 +257,6 @@ value-list-max-empty-lines
 
 ## 11. Units
 
-unit-no-unknown
 unit-blacklist
 unit-whitelist
 length-zero-no-unit
@@ -281,7 +285,6 @@ comment-whitespace-inside
 
 ## 15. At-rules
 
-at-rule-no-unknown
 no-duplicate-at-import-rules
 at-rule-blacklist
 at-rule-whitelist
@@ -315,7 +318,6 @@ function-whitespace-after
 
 ## 17. Media queries
 
-media-feature-name-no-unknown
 media-feature-name-blacklist
 media-feature-name-whitelist
 media-feature-name-no-vendor-prefix
@@ -335,6 +337,5 @@ media-query-list-comma-space-before
 
 keyframe-declaration-no-important
 keyframes-name-pattern
-no-unknown-animations
 
 **Sass specific rules: mixins, nesting, variables - decide where to set**
