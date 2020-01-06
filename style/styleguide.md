@@ -243,34 +243,51 @@ Colon separates property and its value.
         }
         ```
 
-no-descending-specificity
-selector-no-qualifying-type
-selector-max-attribute
-selector-max-class
-selector-max-combinators
-selector-max-compound-selectors
-selector-max-empty-lines
-selector-max-id
-selector-max-pseudo-class
-selector-max-specificity
-selector-max-type
-selector-max-universal
-selector-attribute-operator-blacklist
-selector-attribute-operator-whitelist
+3. Selector specifity
+    * Max value of specifity is not defined. It's up to a developer to create selectors that have specifity big enough to apply style to picked element and not too big to apply modification without `!important` or creating unnecessarily specified. Specifity is limited by rules provided in next points - rule NOT USED: `"selector-max-specificity": "1, 1, 1"`.
+    * Max number of universal (`*`) and ID selectors in a selector equals to 1. Universal selector lower performance of CSS, while ID selectors should be used rarely - rules:  
+    `"selector-max-id": 1`  
+    `"selector-max-universal": 1`.
+    * Max number of of attribute selectors or pseudo-classes is limited to 2 as properly added classes to elements within modular components resolve problems with selecting desired elements - rules:  
+    `"selector-max-attribute": 2`  
+    `"selector-max-pseudo-class": 2`.
+    * Selectors required for maintanable and scalable template shouldn't be to long. 4 elements long selectors is enough. It could contain elements listed in previous points or be builed from only type selectors or classes. 4 elements long selector means that only 3 combinators are allowed - rules:  
+    `"selector-max-combinators": 3`  
+    `"selector-max-class": 4`  
+    `"selector-max-compound-selectors": 4`  
+    `"selector-max-type": 4`
+
+4. Attribute selectors
+    * There is no black- or whitelist of attributes' operators defined. All provided by CSS are allowed - rules NOT USED:  
+    `"selector-attribute-operator-blacklist": []`  
+    `"selector-attribute-operator-whitelist": []`
+
 selector-attribute-brackets-space-inside
 selector-attribute-operator-space-after
 selector-attribute-operator-space-before
 selector-attribute-quotes
+
+5. Pseudo-classes and pseudo-elements
+
 selector-pseudo-class-blacklist
 selector-pseudo-class-whitelist
 selector-pseudo-class-parentheses-space-inside
 selector-pseudo-element-blacklist
 selector-pseudo-element-whitelist
 selector-pseudo-element-colon-notation
+
+6. Selectors lists
+
+selector-max-empty-lines
 selector-list-comma-newline-after
 selector-list-comma-newline-before
 selector-list-comma-space-after
 selector-list-comma-space-before
+
+
+
+no-descending-specificity
+selector-no-qualifying-type
 
 ## 7. Declaration blocks
 
