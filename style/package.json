@@ -1,0 +1,22 @@
+{
+    "name": "style-guide-style",
+    "version": "0.1.0",
+    "description": "Style guide for style of web apps",
+    "main": "index.js",
+    "scripts": {
+        "stylelint": "stylelint \"examples/*.scss\" --syntax scss"
+    },
+    "keywords": [
+        "style",
+        "guide",
+        "css",
+        "sass",
+        "scss",
+        "stylelint"
+    ],
+    "author": "dwf",
+    "license": "MIT",
+    "devDependencies": {
+        "stylelint": "12.0.1"
+    }
+}
