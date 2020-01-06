@@ -45,6 +45,10 @@
                 ]
             }
         ],
+        "no-duplicate-selectors": true,
+        "selector-descendant-combinator-no-non-space": true,
+        "selector-combinator-space-before": "always",
+        "selector-combinator-space-after": "always",
         "length-zero-no-unit": true,
         "color-named": "never",
         "color-no-hex": true,

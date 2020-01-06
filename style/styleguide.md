@@ -112,6 +112,9 @@ It's important to choose one before start of development and stick to it until e
         `"property-no-vendor-prefix": true`  
         `"selector-no-vendor-prefix": true`  
         `"value-no-vendor-prefix": true`
+    * After choosing methodology to make structure of project. If naming convention is not set, it's worth effort to create own for e.g. id or class names - rules NOT USED:  
+        `"selector-id-pattern": string|regex`  
+        `"selector-class-pattern": string|regex` 
 
 4. Documenting code
 
@@ -190,12 +193,58 @@ Colon separates property and its value.
 
 ## 6. Selectors
 
+1. General rules
+    * All style concerning one element should be placed in one ruleset. It's important to not add duplicated selectors as it makes hard to find all apllied properties - rule: `"no-duplicate-selectors": true`. 
+
+        Example of allowed styling
+        ```css
+        .class-6-1-A,
+        .class-6-1-B {
+            font-size: 14px;
+        }
+
+        .class-6-1-A {
+            color: hsl(24, 100%, 50%);
+        }
+        ```
+
+        Example of NOT allowed styling
+        ```css
+        .class-6-1-A {
+            font-size: 12px;
+        }
+
+        .class-6-1-B {
+            font-size: 14px;
+        }
+
+        .class-6-1-A {
+            color: hsl(24, 100%, 50%);
+        }
+        ```
+
+2. Selector combinators (e.g. `+`, `>`)
+    * There is no black- or whitelist of combinators defined. All provided by CSS are allowed - rules NOT USED:  
+    `"selector-combinator-blacklist": []`  
+    `"selector-combinator-whitelist": []`
+    * There always should be single space between elements, classes, ids or combinators in selector - rules:  
+    `"selector-descendant-combinator-no-non-space": true`  
+    `"selector-combinator-space-before": "always"`  
+    `"selector-combinator-space-after": "always"`.
+
+        Example
+        ```css
+        .class-6-2-A .class-6-2-B {
+            font-size: 20px;
+        }
+
+        .class-6-2-C > .class-6-2-D {
+            font-size: 12px;
+        }
+        ```
+
 no-descending-specificity
-no-duplicate-selectors
-selector-id-pattern
-selector-class-pattern
-selector-combinator-blacklist
-selector-combinator-whitelist
+selector-no-qualifying-type
 selector-max-attribute
 selector-max-class
 selector-max-combinators
@@ -206,8 +255,6 @@ selector-max-pseudo-class
 selector-max-specificity
 selector-max-type
 selector-max-universal
-selector-nested-pattern
-selector-no-qualifying-type
 selector-attribute-operator-blacklist
 selector-attribute-operator-whitelist
 selector-attribute-brackets-space-inside
@@ -220,9 +267,6 @@ selector-pseudo-class-parentheses-space-inside
 selector-pseudo-element-blacklist
 selector-pseudo-element-whitelist
 selector-pseudo-element-colon-notation
-selector-combinator-space-after
-selector-combinator-space-before
-selector-descendant-combinator-no-non-space
 selector-list-comma-newline-after
 selector-list-comma-newline-before
 selector-list-comma-space-after
@@ -400,4 +444,7 @@ media-query-list-comma-space-before
 keyframe-declaration-no-important
 keyframes-name-pattern
 
+## 19. Further development
 **Sass specific rules: mixins, nesting, variables - decide where to set**
+
+selector-nested-pattern

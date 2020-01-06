@@ -34,6 +34,32 @@
     }
 }
 
+//  Selectors
+
+//  1. General rules
+
+.class-6-1-A {
+    font-size: 12px;
+}
+
+.class-6-1-B {
+    font-size: 14px;
+}
+
+.class-6-1-A {
+    color: hsl(24, 100%, 50%);
+}
+
+//  2. Selector combinators
+
+.class-6-2-A  .class-6-2-B {
+    font-size: 20px;
+}
+
+.class-6-2-C>.class-6-2-D {
+    font-size: 12px;
+}
+
 //  Units
 
 //  2. Value - unit pairs
