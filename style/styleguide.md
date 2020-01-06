@@ -152,9 +152,41 @@ Colon separates property and its value.
 
 1. General rules
     * Semi-colons in CSS have strict destination. They separate declarations. Semi-colon after last declaration within ruleset could be omitted but it strongly advised to put it there always. Nowhere else in any stylesheet additional semi-colon should be added - rule: `"no-extra-semicolons": true`.
-    * Between adjacent rulsets, there should be always an empty line - rule: `"rule-empty-line-before": "always-multi-line"`
+    * Between adjacent rulsets, there should be always an empty line. Exeption is first nested ruleset and ruleset after comment where there shouldn't empty line - rule: 
+        ```json
+        "rule-empty-line-before": [
+            "always-multi-line",
+            {
+                "except": [
+                    "first-nested"
+                ],
+                "ignore": [
+                    "after-comment"
+                ]
+            }
+        ]
+        ```
+        Example
+        ```css
+        //  A comment concerning ruleset
+        .class-5-1-C {
+            color: hsl(240, 100%, 50%);
+            font-size: 24px;
+        }
 
-**TODO: Check rule-empty-line-before rule and exceptions**
+        .class-5-1-D {
+            .class-5-1-E {
+                color: hsl(120, 100%, 50%);
+                font-size: 24px;
+            }
+
+            .class-5-1-F {
+                color: hsl(12, 100%, 50%);
+                font-size: 24px;
+            }
+        }
+        ```
+
 
 ## 6. Selectors
 
@@ -289,20 +321,20 @@ value-list-max-empty-lines
 ## 13. Text
 
 1. Coding fonts properties:
+    * Font families that name contain white space or digit or punctuation character other than hyphen are recommended to be wrapped with quotes. Keywords like: `inherit`, `sans-serif`, `cursive` cannot be wrapped into quotes, as it change it into font family with that name. Qoutes cannot be added to vendor prefixed system fonts linke `-apple-system` or `BlinkMacSystemFont`. All other names with invalid CSS identifiers (containing `$`, `!` or `/`) must be qouted - rule: `"font-family-name-quotes": "always-where-recommended"`.
     * Value for `font-family` property has to contain generic families (e.g. serif, monospace) added at the end of list - rule: `"font-family-no-missing-generic-family-keyword": true`.
-    * **TODO: font-family-name-quotes**
     * Stylelint provides rule to disallow adding repeated font family names - rule: `"font-family-no-duplicate-names": true`.
     * Browsers could interpate named values in different ways, so properties as `font-weight` should have numeric values instead of named - rule: `"font-weight-notation": "numeric"`.
 
         Example:
         ```css
         .proper-example {
-            font-family: "MySuperFont", "Times New Roman", Times serif;
+            font-family: MySuperFont, "Times New Roman", Times, serif;
             font-weight: 400;
         }
 
         .wrong-example {
-            font-family: MySuperFont, Times New Roman, Times, Times;
+            font-family: "MySuperFont", Times New Roman, Times, Times;
             font-weight: normal;
         }
         ```

@@ -1,0 +1,60 @@
+//  Valid code examples
+
+//  Rulesets
+
+//  1. General rules
+
+.class-5-1-A {
+    color: hsl(60, 100%, 50%);
+    font-size: 16px;
+}
+
+.class-5-1-B {
+    color: hsl(0, 100%, 50%);
+    font-size: 20px;
+}
+
+//  A comment concerning ruleset
+.class-5-1-C {
+    color: hsl(240, 100%, 50%);
+    font-size: 24px;
+}
+
+.class-5-1-D {
+    .class-5-1-E {
+        color: hsl(120, 100%, 50%);
+        font-size: 24px;
+    }
+
+    .class-5-1-F {
+        color: hsl(24, 100%, 50%);
+        font-size: 24px;
+    }
+}
+
+//  Units
+
+//  2. Value - unit pairs
+
+.class-11-2 {
+    margin: 0;
+    padding: 0 1rem;
+}
+
+//  Colours
+
+//  1. Coding colours
+
+.class-12-1 {
+    background-color: hsl(60, 100%, 50%);
+    color: hsl(0, 100%, 50%);
+}
+
+// Text
+
+//  1. Coding fonts properties
+
+.class-13-1 {
+    font-family: MySuperFont, "Times New Roman", Times, serif;
+    font-weight: 400;
+}

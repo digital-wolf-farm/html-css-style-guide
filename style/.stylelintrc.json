@@ -34,9 +34,23 @@
         "selector-no-vendor-prefix": true,
         "value-no-vendor-prefix": true,
         "no-extra-semicolons": true,
-        "rule-empty-line-before": "always-multi-line",
+        "rule-empty-line-before": [
+            "always-multi-line",
+            {
+                "except": [
+                    "first-nested"
+                ],
+                "ignore": [
+                    "after-comment"
+                ]
+            }
+        ],
         "length-zero-no-unit": true,
         "color-named": "never",
-        "color-no-hex": true
+        "color-no-hex": true,
+        "font-family-name-quotes": "always-where-recommended",
+        "font-family-no-missing-generic-family-keyword": true,
+        "font-family-no-duplicate-names": true,
+        "font-weight-notation": "numeric"
     }
 }
