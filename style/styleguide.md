@@ -260,21 +260,47 @@ Colon separates property and its value.
 4. Attribute selectors
     * There is no black- or whitelist of attributes' operators defined. All provided by CSS are allowed - rules NOT USED:  
     `"selector-attribute-operator-blacklist": []`  
-    `"selector-attribute-operator-whitelist": []`
+    `"selector-attribute-operator-whitelist": []`.
+    * Attribute selector should be placed in square brackets without any whitespace inside them and attribute value shoud be wrpeed with quotes - rules:
+    `"selector-attribute-brackets-space-inside": "never"`  
+    `"selector-attribute-operator-space-after": "never"`  
+    `"selector-attribute-operator-space-before": "never"`  
+    `"selector-attribute-quotes": "always"`.
 
-selector-attribute-brackets-space-inside
-selector-attribute-operator-space-after
-selector-attribute-operator-space-before
-selector-attribute-quotes
+        Example
+        ```css
+        input[type="text"] {
+            padding: 0 0.5em;
+        }
+        ```
 
 5. Pseudo-classes and pseudo-elements
+    * There is no black- or whitelist of pseudo-classes and psuedo-elements defined. All provided by CSS are allowed - rules NOT USED:  
+    `"selector-pseudo-class-blacklist": []`  
+    `"selector-pseudo-class-whitelist": []`  
+    `"selector-pseudo-element-blacklist": []`  
+    `"selector-pseudo-element-whitelist": []`.
+    * When using parentheses within pseudo-class there shouldn't be whitespace inside them - rule: `"selector-pseudo-class-parentheses-space-inside": "never"`.
+    
+        Example
+        ```css
+        input:not([type="text"] ) {
+            padding: 0 0.5em;
+        }
+        ```
+    * There should be used double colon notation for pseudo-elements - rule: `"selector-pseudo-element-colon-notation": "double"`.
 
-selector-pseudo-class-blacklist
-selector-pseudo-class-whitelist
-selector-pseudo-class-parentheses-space-inside
-selector-pseudo-element-blacklist
-selector-pseudo-element-whitelist
-selector-pseudo-element-colon-notation
+        Example
+        ```css
+        button:hover {
+            backgroun-color: hsl(24, 100%, 50%);
+        }
+
+        p::first-letter {
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+        ```
 
 6. Selectors lists
 
