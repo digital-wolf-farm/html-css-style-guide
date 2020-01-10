@@ -222,7 +222,35 @@ Colon separates property and its value.
             color: hsl(24, 100%, 50%);
         }
         ```
+    * There should not be added selector with lower specifity after selector whith higher specifity - rule: `"no-descending-specificity": true`.
+    * There should not be added selectors qualifying by type (exception for attributes) - rule:  
+        ```json
+        "selector-no-qualifying-type": [
+            true,
+            {
+                "ignore": "attribute"
+            }
+        ]
+        ```
 
+        Example of NOT allowed styling
+        ```css
+        p.class-6-1-C {
+            font-size: 12px;
+        }
+
+        a#class-6-1-D {
+            font-size: 14px;
+        }
+        ```
+
+        Allowed exception
+        ```css
+        input[type="text"] {
+            color: hsl(24, 100%, 50%);
+        }
+        ```
+    
 2. Selector combinators (e.g. `+`, `>`)
     * There is no black- or whitelist of combinators defined. All provided by CSS are allowed - rules NOT USED:  
     `"selector-combinator-blacklist": []`  
@@ -303,17 +331,21 @@ Colon separates property and its value.
         ```
 
 6. Selectors lists
+    * Every selector in a selector list should be added in a new line, no white space before comma and no empty lines between adjacent selectors - rules:  
+    `"selector-list-comma-newline-after": "always"`  
+    `"selector-list-comma-newline-before": "never-multi-line"`  
+    `"selector-list-comma-space-after": "always-single-line"`  
+    `"selector-list-comma-space-before": "never"`  
+    `"selector-max-empty-lines": 0`
 
-selector-max-empty-lines
-selector-list-comma-newline-after
-selector-list-comma-newline-before
-selector-list-comma-space-after
-selector-list-comma-space-before
-
-
-
-no-descending-specificity
-selector-no-qualifying-type
+        Example
+        ```css
+        .class-6-6-A,
+        .class-6-6-B {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        ```
 
 ## 7. Declaration blocks
 
