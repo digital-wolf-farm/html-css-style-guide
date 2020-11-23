@@ -349,9 +349,34 @@ Colon separates property and its value.
 
 ## 7. Declaration blocks
 
-block-no-empty
-declaration-block-no-duplicate-properties
-declaration-block-no-shorthand-property-overrides
+1. General rules:
+    * Empty block, even without comment, are not allowed - rule: `"block-no-empty": true`
+
+        Example
+        ```css
+        .class-7-1-1 {
+            /* comment */
+        }
+        ```
+
+        Example of NOT allowed styling
+        ```css
+        .class-7-1-2 {}
+        .class-7-1-3 { }
+        ```
+        
+2. Properties:
+    * Duplicated properties are not allowed - rule: `"declaration-block-no-duplicate-properties": true`.
+    * Shorthand properties cannot override longhand properties - rule: `"declaration-block-no-shorthand-property-overrides": true`.
+
+        Example of NOT allowed styling
+        ```css
+        .class-7-2-1 {
+            margin-left: 20px;
+            margin: 15px;
+        }
+        ```
+
 declaration-block-single-line-max-declarations
 declaration-block-semicolon-newline-after
 declaration-block-semicolon-newline-before
@@ -396,7 +421,9 @@ custom-property-empty-line-before
 
 ## 10. Values
 
-string-no-newline
+1. Strings could not have unescaped newline - rule: `"string-no-newline": true`.
+
+
 number-max-precision
 time-min-milliseconds
 number-leading-zero
@@ -460,15 +487,19 @@ value-list-max-empty-lines
 
 ## 14. Comments
 
-comment-no-empty
-no-invalid-double-slash-comments
+1. General rules:
+    * No empty comments are allowed - rule: `"comment-no-empty": true`.
+    * Comments `//...` are not allowed - rule: `"no-invalid-double-slash-comments": true`
+
 comment-word-blacklist
 comment-empty-line-before
 comment-whitespace-inside
 
 ## 15. At-rules
 
-no-duplicate-at-import-rules
+1. General rules:
+    * No duplicated `@import` rules are allowed - rule: `"no-duplicate-at-import-rules": true`.
+
 at-rule-blacklist
 at-rule-whitelist
 at-rule-property-requirelist
@@ -480,9 +511,13 @@ at-rule-semicolon-space-before
 
 ## 16. Functions
 
-function-calc-no-invalid
-function-calc-no-unspaced-operator
-function-linear-gradient-no-nonstandard-direction
+1. Functions rules:
+    * calc() function must be valid: expression with operator surrounded by whitespaces between arguments - rules:
+        `"function-calc-no-invalid": true`,
+        `"function-calc-no-unspaced-operator": true`.
+    * Only standard directions are allowed in `linear-gradient()` functions like `to top`, `30deg`, `1.5rad` or lack of this argument (default `to bottom` will be used) - rule: `"function-linear-gradient-no-nonstandard-direction": true`.
+
+
 function-blacklist
 function-whitelist
 function-url-no-scheme-relative
@@ -516,7 +551,10 @@ media-query-list-comma-space-before
 
 ## 18. Animations
 
-keyframe-declaration-no-important
+1. `!important` keyword is not allowed within keyframe declarations (some browsers ignore it) - rule: `"keyframe-declaration-no-important": true`.
+
+
+
 keyframes-name-pattern
 
 ## 19. Further development

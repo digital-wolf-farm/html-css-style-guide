@@ -14,7 +14,7 @@ This style guide is prepared for using with CSS linter [stylelint.io](https://st
 ## Requirements for project
 
 1. Node.js (v12.13.1*) with npm (6.12.1*) installed glabally;
-2. stylelint (12.0.1*);
+2. stylelint (13.8.0*);
 
 (*) Given version is tested, older version may work but it's not guarantee.
 
