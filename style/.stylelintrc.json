@@ -68,6 +68,7 @@
         "selector-attribute-operator-space-after": "never",
         "selector-attribute-operator-space-before": "never",
         "selector-attribute-quotes": "always",
+        "selector-attribute-name-disallowed-list": ["class", "id"],
         "selector-pseudo-class-parentheses-space-inside": "never",
         "selector-pseudo-element-colon-notation": "double",
         "selector-list-comma-newline-after": "always",

@@ -253,8 +253,8 @@ Colon separates property and its value.
     
 2. Selector combinators (e.g. `+`, `>`)
     * There is no black- or whitelist of combinators defined. All provided by CSS are allowed - rules NOT USED:  
-    `"selector-combinator-blacklist": []`  
-    `"selector-combinator-whitelist": []`
+    `"selector-combinator-allowed-list": []`  
+    `"selector-combinator-disallowed-list": []`
     * There always should be single space between elements, classes, ids or combinators in selector - rules:  
     `"selector-descendant-combinator-no-non-space": true`  
     `"selector-combinator-space-before": "always"`  
@@ -287,8 +287,8 @@ Colon separates property and its value.
 
 4. Attribute selectors
     * There is no black- or whitelist of attributes' operators defined. All provided by CSS are allowed - rules NOT USED:  
-    `"selector-attribute-operator-blacklist": []`  
-    `"selector-attribute-operator-whitelist": []`.
+    `"selector-attribute-operator-allowed-list": []`  
+    `"selector-attribute-operator-disallowed-list": []`.
     * Attribute selector should be placed in square brackets without any whitespace inside them and attribute value shoud be wrpeed with quotes - rules:
     `"selector-attribute-brackets-space-inside": "never"`  
     `"selector-attribute-operator-space-after": "never"`  
@@ -301,13 +301,14 @@ Colon separates property and its value.
             padding: 0 0.5em;
         }
         ```
+    * As attribute selectors cannot be taken classes and ids names - rule `"selector-attribute-name-disallowed-list": ["class", "id"]`.
 
 5. Pseudo-classes and pseudo-elements
     * There is no black- or whitelist of pseudo-classes and psuedo-elements defined. All provided by CSS are allowed - rules NOT USED:  
-    `"selector-pseudo-class-blacklist": []`  
-    `"selector-pseudo-class-whitelist": []`  
-    `"selector-pseudo-element-blacklist": []`  
-    `"selector-pseudo-element-whitelist": []`.
+    `"selector-pseudo-class-allowed-list": []`  
+    `"selector-pseudo-class-disallowed-list": []`  
+    `"selector-pseudo-element-allowed-list": []`  
+    `"selector-pseudo-element-disallowed-list": []`.
     * When using parentheses within pseudo-class there shouldn't be whitespace inside them - rule: `"selector-pseudo-class-parentheses-space-inside": "never"`.
     
         Example
@@ -397,10 +398,10 @@ block-closing-brace-space-before
 
 declaration-block-no-redundant-longhand-properties
 declaration-no-important
-declaration-property-unit-blacklist
-declaration-property-unit-whitelist
-declaration-property-value-blacklist
-declaration-property-value-whitelist
+declaration-property-unit-allowed-list
+declaration-property-unit-disallowed-list
+declaration-property-value-allowed-list
+declaration-property-value-disallowed-list
 declaration-bang-space-after
 declaration-bang-space-before
 declaration-colon-newline-after
@@ -412,8 +413,8 @@ declaration-empty-line-before
 
 shorthand-property-no-redundant-values
 custom-property-pattern
-property-blacklist
-property-whitelist
+property-allowed-list
+property-disallowed-list
 custom-property-empty-line-before
 
 **Nesting properties in Sass is not allowed**
@@ -422,7 +423,6 @@ custom-property-empty-line-before
 ## 10. Values
 
 1. Strings could not have unescaped newline - rule: `"string-no-newline": true`.
-
 
 number-max-precision
 time-min-milliseconds
@@ -439,8 +439,8 @@ value-list-max-empty-lines
 
 1. Unit black-/whitelist
     * There is do defined black-/whitelist of available units - rules NOT USED:  
-        `"unit-blacklist": []`   
-        `"unit-whitelist": []`. 
+        `"unit-allowed-list": []`   
+        `"unit-disallowed-list": []`. 
 2. Value - unit pairs
     * Zero length value (em, ex, ch, vw, vh, cm, mm, in, pt, pc, px, rem, vmin, and vmax) must be written without unit - rule: `"length-zero-no-unit": true`.  
     
@@ -463,6 +463,10 @@ value-list-max-empty-lines
         `"color-hex-length": "long"`  
         `"color-hex-case": "lower"`  
         `"color-no-invalid-hex": true`.
+
+color-function-notation
+alpha-value-notation
+hue-degree-notation
 
 ## 13. Text
 
@@ -491,18 +495,19 @@ value-list-max-empty-lines
     * No empty comments are allowed - rule: `"comment-no-empty": true`.
     * Comments `//...` are not allowed - rule: `"no-invalid-double-slash-comments": true`
 
-comment-word-blacklist
+comment-word-disallowed-list
 comment-empty-line-before
 comment-whitespace-inside
+comment-pattern
 
 ## 15. At-rules
 
 1. General rules:
     * No duplicated `@import` rules are allowed - rule: `"no-duplicate-at-import-rules": true`.
 
-at-rule-blacklist
-at-rule-whitelist
-at-rule-property-requirelist
+at-rule-disallowed-list
+at-rule-allowed-list
+at-rule-property-required-list
 at-rule-empty-line-before
 at-rule-name-newline-after
 at-rule-name-space-after
@@ -518,11 +523,11 @@ at-rule-semicolon-space-before
     * Only standard directions are allowed in `linear-gradient()` functions like `to top`, `30deg`, `1.5rad` or lack of this argument (default `to bottom` will be used) - rule: `"function-linear-gradient-no-nonstandard-direction": true`.
 
 
-function-blacklist
-function-whitelist
+function-allowed-list
+function-disallowed-list
 function-url-no-scheme-relative
-function-url-scheme-blacklist
-function-url-scheme-whitelist
+function-url-scheme-allowed-list
+function-url-scheme-disallowed-list
 function-comma-newline-after
 function-comma-newline-before
 function-comma-space-after
@@ -535,9 +540,9 @@ function-whitespace-after
 
 ## 17. Media queries
 
-media-feature-name-blacklist
-media-feature-name-whitelist
-media-feature-name-value-whitelist
+media-feature-name-allowed-list
+media-feature-name-disallowed-list
+media-feature-name-value-allowed-list
 custom-media-pattern
 media-feature-colon-space-after
 media-feature-colon-space-before
