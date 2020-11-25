@@ -441,6 +441,7 @@ value-list-max-empty-lines
     * There is do defined black-/whitelist of available units - rules NOT USED:  
         `"unit-allowed-list": []`   
         `"unit-disallowed-list": []`. 
+
 2. Value - unit pairs
     * Zero length value (em, ex, ch, vw, vh, cm, mm, in, pt, pc, px, rem, vmin, and vmax) must be written without unit - rule: `"length-zero-no-unit": true`.  
     
@@ -516,15 +517,17 @@ at-rule-semicolon-space-before
 
 ## 16. Functions
 
-1. Functions rules:
+1. General rules:
+    * There is no black- or whitelist of functions. All provided by CSS are allowed - rules NOT USED:  
+        `"function-allowed-list": []`  
+        `"function-disallowed-list": []`.
+
+2. Arguments:
     * calc() function must be valid: expression with operator surrounded by whitespaces between arguments - rules:
         `"function-calc-no-invalid": true`,
         `"function-calc-no-unspaced-operator": true`.
     * Only standard directions are allowed in `linear-gradient()` functions like `to top`, `30deg`, `1.5rad` or lack of this argument (default `to bottom` will be used) - rule: `"function-linear-gradient-no-nonstandard-direction": true`.
 
-
-function-allowed-list
-function-disallowed-list
 function-url-no-scheme-relative
 function-url-scheme-allowed-list
 function-url-scheme-disallowed-list
@@ -544,13 +547,14 @@ function-whitespace-after
     * There is no black- or whitelist of media feature names or their combinations with values. All provided by CSS are allowed - rules NOT USED:  
         `"media-feature-name-allowed-list": []`  
         `"media-feature-name-disallowed-list": []`
-        `"media-feature-name-value-allowed-list": []`
-    * There is no custom media query names pattern defined - rule NOT USER: `"custom-media-pattern": ""`
+        `"media-feature-name-value-allowed-list": []`.
+    * There is no custom media query names pattern defined - rule NOT USER: `"custom-media-pattern": ""`.
+
 2. Scheme of media features:
     * No space inside parentheses - rule: `"media-feature-parentheses-space-inside": "never"`.
     * Space after NOT before colon - rules:
         `"media-feature-colon-space-after": "always"`
-        `"media-feature-colon-space-before": "never"`
+        `"media-feature-colon-space-before": "never"`.
 
         Example:
         ```css
@@ -563,7 +567,7 @@ function-whitespace-after
 
     * Space before and after range operators - rules:
         `"media-feature-range-operator-space-after": "always"`
-        `"media-feature-range-operator-space-before": "always"`
+        `"media-feature-range-operator-space-before": "always"`.
 
         Example:
         ```css
@@ -579,7 +583,7 @@ function-whitespace-after
         `"media-query-list-comma-newline-after": "always-multi-line"`
         `"media-query-list-comma-newline-before": "never-multi-line"`
         `"media-query-list-comma-space-after": "always-single-line"`
-        `"media-query-list-comma-space-before": "never"`
+        `"media-query-list-comma-space-before": "never"`.
 
         Example:
         ```css
@@ -601,7 +605,7 @@ function-whitespace-after
 
 1. General rules
     * `!important` keyword is not allowed within keyframe declarations (some browsers ignore it) - rule: `"keyframe-declaration-no-important": true`.
-    * There is restrictions regarding naming keyframes - rule NOT USED: `"keyframes-name-pattern": ""`
+    * There is restrictions regarding naming keyframes - rule NOT USED: `"keyframes-name-pattern": ""`.
 
 ## 19. Further development
 **Sass specific rules: mixins, nesting, variables - decide where to set**
