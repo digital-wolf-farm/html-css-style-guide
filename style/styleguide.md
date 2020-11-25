@@ -301,7 +301,7 @@ Colon separates property and its value.
             padding: 0 0.5em;
         }
         ```
-    * As attribute selectors cannot be taken classes and ids names - rule `"selector-attribute-name-disallowed-list": ["class", "id"]`.
+    * As attribute selectors cannot be taken classes and ids names - rule: `"selector-attribute-name-disallowed-list": ["class", "id"]`.
 
 5. Pseudo-classes and pseudo-elements
     * There is no black- or whitelist of pseudo-classes and psuedo-elements defined. All provided by CSS are allowed - rules NOT USED:  
@@ -521,39 +521,69 @@ at-rule-semicolon-space-before
     * There is no black- or whitelist of functions. All provided by CSS are allowed - rules NOT USED:  
         `"function-allowed-list": []`  
         `"function-disallowed-list": []`.
+    * No empty lines are allowed - rule: `"function-max-empty-lines": 0`.
+    * There must be whitespace after function, when there is no other character (like `,`, `)`) - rule: `"function-whitespace-after": "always"`.
+
+        Example:
+        ```css
+        .class-16-1 {
+            transform: translate(1, 1) scale(3);
+        }
+
+        .class-16-2 {
+            transform:
+                translate(1, 1)
+                scale(3);
+        }
+        ```
 
 2. Arguments:
-    * calc() function must be valid: expression with operator surrounded by whitespaces between arguments - rules:
-        `"function-calc-no-invalid": true`,
+    * Argument could be passed in one or in multi line. For one line rule is that directyly after each argument is comma followed by space. For multiline argument after each argument is comma followed by newline. Inside parentheses of multiline function new line is required. No spaces between parentheses and arguments - rules:  
+        `"function-comma-newline-after": "always-multi-line"`  
+        `"function-comma-newline-before": "never-multi-line"`  
+        `"function-comma-space-after": "always-single-line"`  
+        `"function-comma-space-before": "never"`  
+        `"function-parentheses-newline-inside": "always-multi-line"`  
+        `"function-parentheses-space-inside": "never"`.
+
+        Example:
+        ```css
+        .class {
+            background: hsl(100, 100%, 50%);
+            transform: translate(
+                1,
+                1
+            );
+            transition-timing-function: cubic-bezier(
+                0.17, 0.67, 0.83, 0.67
+            );
+        }
+        ```
+
+    * calc() function must be valid: expression with operator surrounded by whitespaces between arguments - rules:  
+        `"function-calc-no-invalid": true`  
         `"function-calc-no-unspaced-operator": true`.
     * Only standard directions are allowed in `linear-gradient()` functions like `to top`, `30deg`, `1.5rad` or lack of this argument (default `to bottom` will be used) - rule: `"function-linear-gradient-no-nonstandard-direction": true`.
-
-function-url-no-scheme-relative
-function-url-scheme-allowed-list
-function-url-scheme-disallowed-list
-function-comma-newline-after
-function-comma-newline-before
-function-comma-space-after
-function-comma-space-before
-function-max-empty-lines
-function-parentheses-newline-inside
-function-parentheses-space-inside
-function-url-quotes
-function-whitespace-after
+    * URL passed as argument cannot be relative (must starts with `http(s)://` not `//`) and must be quoted, but there is no scheme restrictions - rules:  
+        `"function-url-no-scheme-relative": true`  
+        `"function-url-quotes": "always"`.  
+    Rules NOT USED:  
+        `"function-url-scheme-allowed-list": []`  
+        `"function-url-scheme-disallowed-list": []`.
 
 ## 17. Media queries
 
 1. General rules:
     * There is no black- or whitelist of media feature names or their combinations with values. All provided by CSS are allowed - rules NOT USED:  
         `"media-feature-name-allowed-list": []`  
-        `"media-feature-name-disallowed-list": []`
+        `"media-feature-name-disallowed-list": []`  
         `"media-feature-name-value-allowed-list": []`.
     * There is no custom media query names pattern defined - rule NOT USER: `"custom-media-pattern": ""`.
 
 2. Scheme of media features:
     * No space inside parentheses - rule: `"media-feature-parentheses-space-inside": "never"`.
-    * Space after NOT before colon - rules:
-        `"media-feature-colon-space-after": "always"`
+    * Space after NOT before colon - rules:  
+        `"media-feature-colon-space-after": "always"`  
         `"media-feature-colon-space-before": "never"`.
 
         Example:
@@ -565,8 +595,8 @@ function-whitespace-after
         }
         ```
 
-    * Space before and after range operators - rules:
-        `"media-feature-range-operator-space-after": "always"`
+    * Space before and after range operators - rules:  
+        `"media-feature-range-operator-space-after": "always"`  
         `"media-feature-range-operator-space-before": "always"`.
 
         Example:
@@ -579,10 +609,10 @@ function-whitespace-after
         ```
 
 3. Media query lists:
-    * Lists of media queries, if not placed in one line, should have all lines ended with comma. No space before comma, only after - rules:
-        `"media-query-list-comma-newline-after": "always-multi-line"`
-        `"media-query-list-comma-newline-before": "never-multi-line"`
-        `"media-query-list-comma-space-after": "always-single-line"`
+    * Lists of media queries, if not placed in one line, should have all lines ended with comma. No space before comma, only after - rules:  
+        `"media-query-list-comma-newline-after": "always-multi-line"`  
+        `"media-query-list-comma-newline-before": "never-multi-line"`  
+        `"media-query-list-comma-space-after": "always-single-line"`  
         `"media-query-list-comma-space-before": "never"`.
 
         Example:
