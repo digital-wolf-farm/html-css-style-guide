@@ -471,23 +471,32 @@ value-list-max-empty-lines
 
 ## 12. Colours
 
-1. Coding colours
+1. General rules:
     * There should be used hsl()/hsla() function to set colours in stylesheets. This is easiest way for colour to be recognized as only one variable - angle of colour circle must be known. Second way to set colour for elements is to use rgb()/rgba() function. However, this function make matching code with rendered colour a lot harder. Hex or named colours in stylesheets are not welcomed - rules:  
         `"color-named": "never"`  
         `"color-no-hex": true`.  
     
-        NOT USED rules, as hex colours are not allowed:  
+        rules NOT USED, as hex colours are not allowed:  
         `"color-hex-length": "long"`  
         `"color-hex-case": "lower"`  
         `"color-no-invalid-hex": true`.
 
-color-function-notation
-alpha-value-notation
-hue-degree-notation
+2. Values:
+    * Alpha values must always use the number notation - rule: `"alpha-value-notation": "number"`.
+    * Degree hues must always use the number notation - rule: `"hue-degree-notation": "number"`.
+    * All functions arguments must be divided with comma - rule: `"color-function-notation": "legacy"`.
+
+        Example:
+        ```css
+        .class-name {
+            color: hsl(25, 30%, 30%);
+            opacity: 0.2;
+        }
+        ```
 
 ## 13. Text
 
-1. Coding fonts properties:
+1. General rules:
     * Font families that name contain white space or digit or punctuation character other than hyphen are recommended to be wrapped with quotes. Keywords like: `inherit`, `sans-serif`, `cursive` cannot be wrapped into quotes, as it change it into font family with that name. Qoutes cannot be added to vendor prefixed system fonts linke `-apple-system` or `BlinkMacSystemFont`. All other names with invalid CSS identifiers (containing `$`, `!` or `/`) must be qouted - rule: `"font-family-name-quotes": "always-where-recommended"`.
     * Value for `font-family` property has to contain generic families (e.g. serif, monospace) added at the end of list - rule: `"font-family-no-missing-generic-family-keyword": true`.
     * Stylelint provides rule to disallow adding repeated font family names - rule: `"font-family-no-duplicate-names": true`.
