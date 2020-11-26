@@ -365,8 +365,28 @@ Colon separates property and its value.
         .class-7-1-2 {}
         .class-7-1-3 { }
         ```
-        
-2. Properties:
+    * Only one declaration per line is allowed, each line ends with semicolon (directly after value) and newline (end-of-line comment followed by a newline is exception) - rules:  
+        `"declaration-block-single-line-max-declarations": 1`  
+        `"declaration-block-semicolon-newline-after": "always"`  
+        `"declaration-block-semicolon-newline-before": "never-multi-line"`  
+        `"declaration-block-semicolon-space-after": "always-single-line"`  
+        `"declaration-block-semicolon-space-before": "never"`  
+        `"declaration-block-trailing-semicolon": "always"`.  
+
+2. Braces:
+    * Opening brace must be in the same line as selector separated with signle space. After brace newline is required - rules:  
+        `"block-opening-brace-newline-after": "always"`  
+        `"block-opening-brace-newline-before": "never-single-line"`  
+        `"block-opening-brace-space-after": "never"`  
+        `"block-opening-brace-space-before": "never"`.
+    * Closing brace must be placed in the newline directyly under last declaration and followed by newline - rules:  
+        `"block-closing-brace-empty-line-before": "never"`  
+        `"block-closing-brace-newline-after": "always-multi-line"`  
+        `"block-closing-brace-newline-before": "always"`  
+        `"block-closing-brace-space-after": "always-single-line"`  
+        `"block-closing-brace-space-before": "never"`.
+
+3. Properties:
     * Duplicated properties are not allowed - rule: `"declaration-block-no-duplicate-properties": true`.
     * Shorthand properties cannot override longhand properties - rule: `"declaration-block-no-shorthand-property-overrides": true`.
 
@@ -378,25 +398,21 @@ Colon separates property and its value.
         }
         ```
 
-declaration-block-single-line-max-declarations
-declaration-block-semicolon-newline-after
-declaration-block-semicolon-newline-before
-declaration-block-semicolon-space-after
-declaration-block-semicolon-space-before
-declaration-block-trailing-semicolon
-block-opening-brace-newline-after
-block-opening-brace-newline-before
-block-opening-brace-space-after
-block-opening-brace-space-before
-block-closing-brace-empty-line-before
-block-closing-brace-newline-after
-block-closing-brace-newline-before
-block-closing-brace-space-after
-block-closing-brace-space-before
+    * There is no restriction in using longhand properties that could be combined into shorthand properties - rule NOT USED: `"declaration-block-no-redundant-longhand-properties": true`.
+
+        Example
+        ```css
+        .class-7-2-1 {
+            margin-top: 10px;
+            margin-right: 15px;
+            margin-bottom: 5px;
+            margin-left: 15px;
+            padding: 2px 3px 5px 3px;
+        }
+        ```
 
 ## 8. Declarations
 
-declaration-block-no-redundant-longhand-properties
 declaration-no-important
 declaration-property-unit-allowed-list
 declaration-property-unit-disallowed-list
@@ -417,7 +433,7 @@ property-allowed-list
 property-disallowed-list
 custom-property-empty-line-before
 
-**Nesting properties in Sass is not allowed**
+**Nesting properties in Sass is not allowed**  
 **Properties order**
 
 ## 10. Values
