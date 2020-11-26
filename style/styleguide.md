@@ -438,18 +438,25 @@ custom-property-empty-line-before
 
 ## 10. Values
 
-1. Strings could not have unescaped newline - rule: `"string-no-newline": true`.
+1. List of values
+    * Values list should be placed in one line or each value in a new line. Directly after each value comma. In one line list single space after comma. No empty lines between values - rules:  
+        `"value-list-comma-newline-after": "always-multi-line"`  
+        `"value-list-comma-newline-before": "never-multi-line"`  
+        `"value-list-comma-space-after": "always-single-line"`  
+        `"value-list-comma-space-before": "never"`  
+        `"value-list-max-empty-lines": 0`.
+    
+2. Strings
+    * Strings could not have unescaped newline - rule: `"string-no-newline": true`.
+    * Strings must be wrapped with double quotes - rule: `"string-quotes": "double"`.
 
-number-max-precision
-time-min-milliseconds
-number-leading-zero
-number-no-trailing-zeros
-string-quotes
-value-list-comma-newline-after
-value-list-comma-newline-before
-value-list-comma-space-after
-value-list-comma-space-before
-value-list-max-empty-lines
+3. Numbers
+    * For numbers less than 1 leading zero is required - rule: `"number-leading-zero": "always"`.
+    * Trailing zero is forbidden - rule: `"number-no-trailing-zeros": true`.
+    * Max number precision is 3 decimal places - rule: `"number-max-precision": "3"`.
+
+4. Other
+    * There is not specified minimum time for animations and transitions - rule NOT USED: `"time-min-milliseconds": 100`.
 
 ## 11. Units
 
