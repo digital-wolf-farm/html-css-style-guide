@@ -270,6 +270,7 @@ Colon separates property and its value.
             font-size: 12px;
         }
         ```
+    * There is no rules defined about nesting selectors in pure CSS - rule NOT USED: `"selector-nested-pattern": ""`.
 
 3. Selector specifity
     * Max value of specifity is not defined. It's up to a developer to create selectors that have specifity big enough to apply style to picked element and not too big to apply modification without `!important` or creating unnecessarily specified. Specifity is limited by rules provided in next points - rule NOT USED: `"selector-max-specificity": "1, 1, 1"`.
@@ -526,12 +527,11 @@ custom-property-empty-line-before
 
 1. General rules:
     * No empty comments are allowed - rule: `"comment-no-empty": true`.
-    * Comments `//...` are not allowed - rule: `"no-invalid-double-slash-comments": true`
-
-comment-word-disallowed-list
-comment-empty-line-before
-comment-whitespace-inside
-comment-pattern
+    * Comments `//...` are not allowed - rule: `"no-invalid-double-slash-comments": true`.
+    * There must be whitespace inside markes of comments - rule: `"comment-whitespace-inside": "always"`.
+    * There is list of disallowed words defined - rule NOT USED: `"comment-word-disallowed-list": []`.
+    * There is no pattern for comment defined - rule NOT USED: `"comment-pattern": ""`.
+    * There is requirement for empty line before comment defined - rule NOT USED: `"comment-empty-line-before": "always"`.
 
 ## 15. At-rules
 
@@ -691,5 +691,3 @@ comment-pattern
 
 ## 19. Further development
 **Sass specific rules: mixins, nesting, variables - decide where to set**
-
-selector-nested-pattern
