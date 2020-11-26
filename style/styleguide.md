@@ -536,16 +536,36 @@ comment-pattern
 ## 15. At-rules
 
 1. General rules:
+    * There is no black- or whitelist of at-rules defined. All provided by CSS are allowed - rules NOT USED:  
+    `"at-rule-allowed-list": []`  
+    `"at-rule-disallowed-list": []`.
+    * There is no defined list of required properties for any at-rule - rule NOT USED: `"at-rule-property-required-list": []`.
     * No duplicated `@import` rules are allowed - rule: `"no-duplicate-at-import-rules": true`.
 
-at-rule-disallowed-list
-at-rule-allowed-list
-at-rule-property-required-list
-at-rule-empty-line-before
-at-rule-name-newline-after
-at-rule-name-space-after
-at-rule-semicolon-newline-after
-at-rule-semicolon-space-before
+2. Schema:
+    * All at-rules defined in one line or every in a new line. When defined in one line, there must be single space after each at-rule. Space before semicolon is forbidden. Newline after semicolon is required - rules:  
+    `"at-rule-name-newline-after": "always-multi-line"`  
+    `"at-rule-name-space-after": "always-single-line"`  
+    `"at-rule-semicolon-newline-after": "always"`  
+    `"at-rule-semicolon-space-before": "never"`.
+    * Before at-rule, there should be an empty line. However, two the same name at-rule could be placed in subsequent line. Empty line is not necessary also after comment or when at-rule is first nested element - rule:
+    ```json
+        "at-rule-empty-line-before": [
+            "always",
+            {
+                "except": [
+                    "after-same-name",
+                    "first-nested"
+                ],
+                "ignore": [
+                    "after-comment",
+                    "inside-block"
+                ]
+            }
+        ]
+    ```
+
+
 
 ## 16. Functions
 

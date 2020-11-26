@@ -114,6 +114,23 @@
         "comment-no-empty": true,
         "no-invalid-double-slash-comments": true,
         "no-duplicate-at-import-rules": true,
+        "at-rule-name-newline-after": "always-multi-line",
+        "at-rule-name-space-after": "always-single-line",
+        "at-rule-semicolon-newline-after": "always",
+        "at-rule-semicolon-space-before": "never",
+        "at-rule-empty-line-before": [
+            "always",
+            {
+                "except": [
+                    "after-same-name",
+                    "first-nested"
+                ],
+                "ignore": [
+                    "after-comment",
+                    "inside-block"
+                ]
+            }
+        ],
         "function-max-empty-lines": 0,
         "function-whitespace-after": "always",
         "function-comma-newline-after": "always-multi-line",
