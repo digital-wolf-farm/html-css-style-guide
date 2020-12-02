@@ -1,5 +1,7 @@
 {
-    "plugins": [],
+    "plugins": [
+        "stylelint-order"
+    ],
     "rules": {
         "unicode-bom": "never",
         "linebreaks": "windows",
@@ -58,22 +60,25 @@
         "selector-combinator-space-after": "always",
         "selector-max-id": 1,
         "selector-max-universal": 1,
-        "selector-max-attribute": 2,  
+        "selector-max-attribute": 2,
         "selector-max-pseudo-class": 2,
-        "selector-max-combinators": 3,  
+        "selector-max-combinators": 3,
         "selector-max-class": 4,
         "selector-max-compound-selectors": 4,
         "selector-max-type": 4,
-        "selector-attribute-brackets-space-inside": "never", 
+        "selector-attribute-brackets-space-inside": "never",
         "selector-attribute-operator-space-after": "never",
         "selector-attribute-operator-space-before": "never",
         "selector-attribute-quotes": "always",
-        "selector-attribute-name-disallowed-list": ["class", "id"],
+        "selector-attribute-name-disallowed-list": [
+            "class",
+            "id"
+        ],
         "selector-pseudo-class-parentheses-space-inside": "never",
         "selector-pseudo-element-colon-notation": "double",
         "selector-list-comma-newline-after": "always",
         "selector-list-comma-newline-before": "never-multi-line",
-        "selector-list-comma-space-after": "always-single-line", 
+        "selector-list-comma-space-after": "always-single-line",
         "selector-list-comma-space-before": "never",
         "selector-max-empty-lines": 0,
         "block-no-empty": true,
@@ -85,7 +90,7 @@
         "declaration-block-trailing-semicolon": "always",
         "block-opening-brace-newline-after": "always",
         "block-opening-brace-newline-before": "never-single-line",
-        "block-opening-brace-space-after": "never", 
+        "block-opening-brace-space-after": "never",
         "block-opening-brace-space-before": "never",
         "block-closing-brace-empty-line-before": "never",
         "block-closing-brace-newline-after": "always-multi-line",
@@ -162,6 +167,70 @@
         "media-query-list-comma-newline-before": "never-multi-line",
         "media-query-list-comma-space-after": "always-single-line",
         "media-query-list-comma-space-before": "never",
-        "keyframe-declaration-no-important": true
+        "keyframe-declaration-no-important": true,
+        "order/order": [
+            "custom-properties",
+            "dollar-variables",
+            "declarations",
+            "rules",
+            "at-rules"
+        ],
+        "order/properties-order": [
+            {
+                "groupName": "content",
+                "properties": [
+                    "content"
+                ]
+            },
+            {
+                "groupName": "layout",
+                "properties": [
+                    "position",
+                    "top",
+                    "right",
+                    "bottom",
+                    "left",
+                    "float",
+                    "clear",
+                    "z-index"
+                ]
+            },
+            {
+                "groupName": "grid-layout",
+                "properties": []
+            },
+            {
+                "groupName": "flexbox",
+                "properties": []
+            },
+            {
+                "groupName": "visibility",
+                "properties": []
+            },
+            {
+                "groupName": "clipping",
+                "properties": []
+            },
+            {
+                "groupName": "animation",
+                "properties": []
+            },
+            {
+                "groupName": "box-model",
+                "properties": []
+            },
+            {
+                "groupName": "colours",
+                "properties": []
+            },
+            {
+                "groupName": "typography",
+                "properties": []
+            },
+            {
+                "groupName": "other",
+                "properties": []
+            }
+        ]
     }
 }

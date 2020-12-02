@@ -17,6 +17,7 @@
     "author": "dwf",
     "license": "MIT",
     "devDependencies": {
-        "stylelint": "^13.8.0"
+        "stylelint": "^13.8.0",
+        "stylelint-order": "^4.1.0"
     }
 }
