@@ -392,17 +392,22 @@ Colon separates property and its value.
 
 ## 8. Declarations
 
-declaration-no-important
-declaration-property-unit-allowed-list
-declaration-property-unit-disallowed-list
-declaration-property-value-allowed-list
-declaration-property-value-disallowed-list
-declaration-bang-space-after
-declaration-bang-space-before
-declaration-colon-newline-after
-declaration-colon-space-after
-declaration-colon-space-before
-declaration-empty-line-before
+1. General rules
+    * There is no black- or whitelist of property-unit or property-value defined. All provided by CSS are allowed - rules NOT USED:  
+    `"declaration-property-unit-allowed-list": {}`  
+    `"declaration-property-unit-disallowed-list": {}`  
+    `"declaration-property-value-allowed-list": {}`  
+    `"declaration-property-value-disallowed-list": {}`.  
+    * In general using `!important` is not allowed. When necessary to use signle space before before and no whitespace after bang is allowed - rules:  
+    `"declaration-no-important": true`  
+    `"declaration-bang-space-after": "never"`  
+    `"declaration-bang-space-before": "always"`.  
+    * No empty line before declaration is allowed - rule: `"declaration-empty-line-before": "never"`.
+2. Syntax
+    * If declaration is short should be written in one line with single space only after colon. When value is too long to fit one line, then newline after property colon is required - rules:  
+    `"declaration-colon-newline-after": "always-multi-line"`  
+    `"declaration-colon-space-after": "always-single-line"`  
+    `"declaration-colon-space-before": "never"`.
 
 ## 9. Properties
 
