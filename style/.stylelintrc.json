@@ -169,67 +169,77 @@
         "media-query-list-comma-space-before": "never",
         "keyframe-declaration-no-important": true,
         "order/order": [
-            "custom-properties",
-            "dollar-variables",
-            "declarations",
-            "rules",
-            "at-rules"
+            [
+                "custom-properties",
+                "dollar-variables",
+                "declarations",
+                "rules",
+                "at-rules"
+            ],
+            {
+                "unspecified": "bottom"
+            }
         ],
         "order/properties-order": [
+            [
+                {
+                    "groupName": "content",
+                    "properties": [
+                        "content"
+                    ]
+                },
+                {
+                    "groupName": "layout",
+                    "properties": [
+                        "position",
+                        "top",
+                        "right",
+                        "bottom",
+                        "left",
+                        "float",
+                        "clear",
+                        "z-index"
+                    ]
+                },
+                {
+                    "groupName": "grid-layout",
+                    "properties": []
+                },
+                {
+                    "groupName": "flexbox",
+                    "properties": []
+                },
+                {
+                    "groupName": "visibility",
+                    "properties": []
+                },
+                {
+                    "groupName": "clipping",
+                    "properties": []
+                },
+                {
+                    "groupName": "animation",
+                    "properties": []
+                },
+                {
+                    "groupName": "box-model",
+                    "properties": []
+                },
+                {
+                    "groupName": "colours",
+                    "properties": []
+                },
+                {
+                    "groupName": "typography",
+                    "properties": []
+                },
+                {
+                    "groupName": "other",
+                    "properties": []
+                }
+            ],
             {
-                "groupName": "content",
-                "properties": [
-                    "content"
-                ]
-            },
-            {
-                "groupName": "layout",
-                "properties": [
-                    "position",
-                    "top",
-                    "right",
-                    "bottom",
-                    "left",
-                    "float",
-                    "clear",
-                    "z-index"
-                ]
-            },
-            {
-                "groupName": "grid-layout",
-                "properties": []
-            },
-            {
-                "groupName": "flexbox",
-                "properties": []
-            },
-            {
-                "groupName": "visibility",
-                "properties": []
-            },
-            {
-                "groupName": "clipping",
-                "properties": []
-            },
-            {
-                "groupName": "animation",
-                "properties": []
-            },
-            {
-                "groupName": "box-model",
-                "properties": []
-            },
-            {
-                "groupName": "colours",
-                "properties": []
-            },
-            {
-                "groupName": "typography",
-                "properties": []
-            },
-            {
-                "groupName": "other",
-                "properties": []
+                "unspecified": "bottom"
             }
         ]
     }
