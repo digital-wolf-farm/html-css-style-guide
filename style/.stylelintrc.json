@@ -93,6 +93,7 @@
         "block-closing-brace-space-after": "always-single-line",
         "block-closing-brace-space-before": "never",
         "declaration-block-no-duplicate-properties": true,
+        "shorthand-property-no-redundant-values": true,
         "declaration-block-no-shorthand-property-overrides": true,
         "value-list-comma-newline-after": "always-multi-line",
         "value-list-comma-newline-before": "never-multi-line",

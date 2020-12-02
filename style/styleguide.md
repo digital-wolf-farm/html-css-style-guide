@@ -389,28 +389,6 @@ Colon separates property and its value.
 
 3. Properties:
     * Duplicated properties are not allowed - rule: `"declaration-block-no-duplicate-properties": true`.
-    * Shorthand properties cannot override longhand properties - rule: `"declaration-block-no-shorthand-property-overrides": true`.
-
-        Example of NOT allowed styling
-        ```css
-        .class-7-2-1 {
-            margin-left: 20px;
-            margin: 15px;
-        }
-        ```
-
-    * There is no restriction in using longhand properties that could be combined into shorthand properties - rule NOT USED: `"declaration-block-no-redundant-longhand-properties": true`.
-
-        Example
-        ```css
-        .class-7-2-1 {
-            margin-top: 10px;
-            margin-right: 15px;
-            margin-bottom: 5px;
-            margin-left: 15px;
-            padding: 2px 3px 5px 3px;
-        }
-        ```
 
 ## 8. Declarations
 
@@ -428,11 +406,38 @@ declaration-empty-line-before
 
 ## 9. Properties
 
-shorthand-property-no-redundant-values
-custom-property-pattern
-property-allowed-list
-property-disallowed-list
-custom-property-empty-line-before
+1. General rules
+    * There is no black- or whitelist of properties. All provided by CSS are allowed - rules NOT USED:  
+    `"property-allowed-list": []`  
+    `"property-disallowed-list": []`.
+    * There is no pattern for custom property defined - rules NOT USED:  
+    `"custom-property-empty-line-before": "always"`  
+    `"custom-property-pattern": ""`.
+
+2. Shorthand properties
+    * Redundand values in shorthand properties are not allowed - rule: `"shorthand-property-no-redundant-values": true`.
+    * Shorthand properties cannot override longhand properties - rule: `"declaration-block-no-shorthand-property-overrides": true`.
+
+        Example of NOT allowed styling
+        ```css
+        .class-7-2-1 {
+            margin-left: 20px;
+            margin: 15px;
+        }
+        ```
+3. Longhand properties
+    * There is no restriction in using longhand properties that could be combined into shorthand properties - rule NOT USED: `"declaration-block-no-redundant-longhand-properties": true`.
+
+        Example
+        ```css
+        .class-7-2-1 {
+            margin-top: 10px;
+            margin-right: 15px;
+            margin-bottom: 5px;
+            margin-left: 15px;
+            padding: 2px 3px 5px 3px;
+        }
+        ```
 
 **Nesting properties in Sass is not allowed**  
 **Properties order**
