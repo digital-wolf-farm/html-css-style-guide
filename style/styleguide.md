@@ -41,19 +41,77 @@ It's important to choose one before start of development and stick to it until e
 ## 3. General stylesheet rules
 
 1. Stylesheet settings:
-    * Unicode Byte Order Mark should not be added in stylesheet as CSS files are read as UTF-8 by default by browsers - rule: `"unicode-bom": "never"`.
-    * Depending on system which developer is working on different version of line-ending should be set. For Linux and macOS it's LF, while for Windows it's CRLF - rule: `"linebreaks": "windows"`.
+    * Unicode Byte Order Mark should not be added in stylesheet as CSS files are read as UTF-8 by default by browsers.
+
+        Rule: 
+        ```json
+        "unicode-bom": "never",
+        ```
+
+    * Depending on system which developer is working on different version of line-ending should be set. For Linux and macOS it's LF, while for Windows it's CRLF.
+        
+        Rule: 
+        ```json
+        "linebreaks": "windows",
+        ```
 
 2. Structure of stylesheet file
 
-    * Except starter packs or presenting structure of project, there shouldn't be empty files in repository. Leaving such files could make it hard to understand project in the future - rule: `"no-empty-source": true`.
-    * First line of stylesheet cannot be empty, it should be fulfilled with comments about conctent of file or imports - rule: `"no-empty-first-line": true`.
-    * Stylesheet should be ended with a new line - rule: `"no-missing-end-of-source-newline": true`.
-    * One adjacent empty line is enough to divide visually code into parts - rule: `"max-empty-lines": 1`.
-    * I found indentation equals to 4 spaces as more readable - rule: `"indentation": 4`.
-    * Styles are not expanded as JavaScript code, so 80 characters of line lenght is enough and allow to open to stylesheets next to each other on average screen without scrolling - rule: `"max-line-length": 80`.
-    * No whitespace at the end of line is allowed - rule: `"no-eol-whitespace": true`.
-    * Nesting of rulesets introduced by Sass is nice feature which save a lot of code but in practice it should be avoided as introducing non reusable classes, non modular architecture and long selectors in output CSS files. Whole nested rulesets should as well be visible on screen to avoid poor readability. It should be used only with pseudo-classes, pseudo-elements and media queries. More about nesting in another sections. As general rule should be agreed max level of nesting limited to 2 (see: examples) - rule: `"max-nesting-depth": 2`.
+    * Except starter packs or presenting structure of project, there shouldn't be empty files in repository. Leaving such files could make it hard to understand project in the future.
+
+        Rule: 
+        ```json
+        "no-empty-source": true,
+        ```
+
+    * First line of stylesheet cannot be empty, it should be fulfilled with comments about conctent of file or imports.
+        
+        Rule: 
+        ```json
+        "no-empty-first-line": true,
+        ```
+
+    * Stylesheet should be ended with a new line.
+
+        Rule: 
+        ```json
+        "no-missing-end-of-source-newline": true,
+        ```
+
+    * One adjacent empty line is enough to divide visually code into parts.
+
+        Rule: 
+        ```json
+        "max-empty-lines": 1,
+        ```
+
+    * I found indentation equals to 4 spaces as more readable.
+
+        Rule: 
+        ```json
+        "indentation": 4,
+        ```
+
+    * Styles are not expanded as JavaScript code, so 80 characters of line lenght is enough and allow to open to stylesheets next to each other on average screen without scrolling.
+
+        Rule: 
+        ```json
+        "max-line-length": 80,
+        ```
+
+    * No whitespace at the end of line is allowed.
+
+        Rule: 
+        ```json
+        "no-eol-whitespace": true,
+        ```
+
+    * Nesting of rulesets introduced by Sass is nice feature which save a lot of code but in practice it should be avoided as introducing non reusable classes, non modular architecture and long selectors in output CSS files. Whole nested rulesets should as well be visible on screen to avoid poor readability. It should be used only with pseudo-classes, pseudo-elements and media queries. More about nesting in another sections. As general rule should be agreed max level of nesting limited to 2 (see: examples)
+
+        Rule: 
+        ```json
+        "max-nesting-depth": 2,
+        ```
 
         Example of nesting rulesets:
         ```css
@@ -87,34 +145,53 @@ It's important to choose one before start of development and stick to it until e
 
 3. Writing code
 
-    * All names should be written in lowercase with hyphens (except selectors in BEM methodology) - rules:  
-        `"at-rule-name-case": "lower"`    
-        `"function-name-case": "lower"`  
-        `"media-feature-name-case": "lower"`  
-        `"property-case": "lower"`  
-        `"selector-pseudo-class-case": "lower"`  
-        `"selector-pseudo-element-case": "lower"`  
-        `"selector-type-case": "lower"`  
-        `"unit-case": "lower"`  
-        `"value-keyword-case": "lower"`.
-    * It's important to check spelling errors in names used in stylesheets. While class or id names requires checking by developer manually, usage of valid and known type selectors, units, properties, etc. could be check by tools. Using known structures, names makes code easy to understand. All other things should be commented - see: `4. Documenting code` - rules:  
-        `"at-rule-no-unknown": true`  
-        `"media-feature-name-no-unknown": true`  
-        `"no-unknown-animations": true`  
-        `"property-no-unknown": true`  
-        `"selector-pseudo-class-no-unknown": true`  
-        `"selector-pseudo-element-no-unknown": true`  
-        `"selector-type-no-unknown": true`  
-        `"unit-no-unknown": true`.
-    * Code written by developer shouldn't contain any vendor prefixes. As they are no longer recommended by W3C for new features and browsers dynamically changes it usage, adding prefixes should be reffered to automatic tools which base on updated database of support of available features - rules:  
-        `"at-rule-no-vendor-prefix": true`  
-        `"media-feature-name-no-vendor-prefix": true`  
-        `"property-no-vendor-prefix": true`  
-        `"selector-no-vendor-prefix": true`  
-        `"value-no-vendor-prefix": true`
-    * After choosing methodology to make structure of project. If naming convention is not set, it's worth effort to create own for e.g. id or class names - rules NOT USED:  
-        `"selector-id-pattern": string|regex`  
-        `"selector-class-pattern": string|regex` 
+    * All names should be written in lowercase with hyphens (except selectors in BEM methodology).
+
+        Rules: 
+        ```json
+        "at-rule-name-case": "lower",
+        "function-name-case": "lower",
+        "media-feature-name-case": "lower",
+        "property-case": "lower",
+        "selector-pseudo-class-case": "lower",
+        "selector-pseudo-element-case": "lower",
+        "selector-type-case": "lower",
+        "unit-case": "lower",
+        "value-keyword-case": "lower",
+        ```
+
+    * It's important to check spelling errors in names used in stylesheets. While class or id names requires checking by developer manually, usage of valid and known type selectors, units, properties, etc. could be check by tools. Using known structures, names makes code easy to understand. All other things should be commented - see: `4. Documenting code`.
+
+        Rules: 
+        ```json
+        "at-rule-no-unknown": true,
+        "media-feature-name-no-unknown": true,
+        "no-unknown-animations": true,
+        "property-no-unknown": true,
+        "selector-pseudo-class-no-unknown": true,
+        "selector-pseudo-element-no-unknown": true,
+        "selector-type-no-unknown": true,
+        "unit-no-unknown": true,
+        ```
+    
+    * Code written by developer shouldn't contain any vendor prefixes. As they are no longer recommended by W3C for new features and browsers dynamically changes it usage, adding prefixes should be reffered to automatic tools which base on updated database of support of available features.
+
+        Rules: 
+        ```json
+        "at-rule-no-vendor-prefix": true,
+        "media-feature-name-no-vendor-prefix": true,
+        "property-no-vendor-prefix": true,
+        "selector-no-vendor-prefix": true,
+        "value-no-vendor-prefix": true,
+        ```
+
+    * After choosing methodology to make structure of project. If naming convention is not set, it's worth effort to create own for e.g. id or class names.
+
+        Rules NOT USED: 
+        ```json
+        "selector-id-pattern": "",  
+        "selector-class-pattern": "",
+        ```
 
 4. Documenting code
 
@@ -154,8 +231,16 @@ Colon separates property and its value.
 ## 5. Rulesets
 
 1. General rules
-    * Semi-colons in CSS have strict destination. They separate declarations. Semi-colon after last declaration within ruleset could be omitted but it strongly advised to put it there always. Nowhere else in any stylesheet additional semi-colon should be added - rule: `"no-extra-semicolons": true`.
-    * Between adjacent rulsets, there should be always an empty line. Exeption is first nested ruleset and ruleset after comment where there shouldn't empty line - rule: 
+    * Semi-colons in CSS have strict destination. They separate declarations. Semi-colon after last declaration within ruleset could be omitted but it strongly advised to put it there always. Nowhere else in any stylesheet additional semi-colon should be added.
+
+        Rule: 
+        ```json
+        "no-extra-semicolons": true,
+        ```
+
+    * Between adjacent rulsets, there should be always an empty line. Exeption is first nested ruleset and ruleset after comment where there shouldn't empty line.
+
+        Rule: 
         ```json
         "rule-empty-line-before": [
             "always-multi-line",
@@ -167,8 +252,9 @@ Colon separates property and its value.
                     "after-comment"
                 ]
             }
-        ]
+        ],
         ```
+
         Example
         ```css
         //  A comment concerning ruleset
@@ -194,7 +280,12 @@ Colon separates property and its value.
 ## 6. Selectors
 
 1. General rules
-    * All style concerning one element should be placed in one ruleset. It's important to not add duplicated selectors as it makes hard to find all apllied properties - rule: `"no-duplicate-selectors": true`. 
+    * All style concerning one element should be placed in one ruleset. It's important to not add duplicated selectors as it makes hard to find all applied properties.
+
+        Rule: 
+        ```json
+        "no-duplicate-selectors": true,
+        ```
 
         Example of allowed styling
         ```css
@@ -222,15 +313,24 @@ Colon separates property and its value.
             color: hsl(24, 100%, 50%);
         }
         ```
-    * There should not be added selector with lower specifity after selector whith higher specifity - rule: `"no-descending-specificity": true`.
-    * There should not be added selectors qualifying by type (exception for attributes) - rule:  
+
+    * There should not be added selector with lower specifity after selector whith higher specifity.
+
+        Rule: 
+        ```json
+        "no-descending-specificity": true,
+        ```
+
+    * There should not be added selectors qualifying by type (exception for attributes).
+        
+        Rule:  
         ```json
         "selector-no-qualifying-type": [
             true,
             {
                 "ignore": "attribute"
             }
-        ]
+        ],
         ```
 
         Example of NOT allowed styling
@@ -252,13 +352,22 @@ Colon separates property and its value.
         ```
     
 2. Selector combinators (e.g. `+`, `>`)
-    * There is no black- or whitelist of combinators defined. All provided by CSS are allowed - rules NOT USED:  
-    `"selector-combinator-allowed-list": []`  
-    `"selector-combinator-disallowed-list": []`
-    * There always should be single space between elements, classes, ids or combinators in selector - rules:  
-    `"selector-descendant-combinator-no-non-space": true`  
-    `"selector-combinator-space-before": "always"`  
-    `"selector-combinator-space-after": "always"`.
+    * There is no black- or whitelist of combinators defined. All provided by CSS are allowed.
+
+        Rules NOT USED: 
+        ```json
+        "selector-combinator-allowed-list": [],
+        "selector-combinator-disallowed-list": [],
+        ```
+    
+    * There always should be single space between elements, classes, ids or combinators in selector.
+
+        Rules: 
+        ```json
+        "selector-descendant-combinator-no-non-space": true,
+        "selector-combinator-space-before": "always",
+        "selector-combinator-space-after": "always",
+        ```
 
         Example
         ```css
@@ -270,57 +379,111 @@ Colon separates property and its value.
             font-size: 12px;
         }
         ```
-    * There is no rules defined about nesting selectors in pure CSS - rule NOT USED: `"selector-nested-pattern": ""`.
+    * There is no rules defined about nesting selectors in pure CSS.
+
+        Rule NOT USED: 
+        ```json
+        "selector-nested-pattern": "",
+        ```
 
 3. Selector specifity
-    * Max value of specifity is not defined. It's up to a developer to create selectors that have specifity big enough to apply style to picked element and not too big to apply modification without `!important` or creating unnecessarily specified. Specifity is limited by rules provided in next points - rule NOT USED: `"selector-max-specificity": "1, 1, 1"`.
-    * Max number of universal (`*`) and ID selectors in a selector equals to 1. Universal selector lower performance of CSS, while ID selectors should be used rarely - rules:  
-    `"selector-max-id": 1`  
-    `"selector-max-universal": 1`.
-    * Max number of of attribute selectors or pseudo-classes is limited to 2 as properly added classes to elements within modular components resolve problems with selecting desired elements - rules:  
-    `"selector-max-attribute": 2`  
-    `"selector-max-pseudo-class": 2`.
-    * Selectors required for maintanable and scalable template shouldn't be to long. 4 elements long selectors is enough. It could contain elements listed in previous points or be builed from only type selectors or classes. 4 elements long selector means that only 3 combinators are allowed - rules:  
-    `"selector-max-combinators": 3`  
-    `"selector-max-class": 4`  
-    `"selector-max-compound-selectors": 4`  
-    `"selector-max-type": 4`
+    * Max value of specifity is not defined. It's up to a developer to create selectors that have specifity big enough to apply style to picked element and not too big to apply modification without `!important` or creating unnecessarily specified. Specifity is limited by rules provided in next points.
+
+        Rule NOT USED: 
+        ```json
+        "selector-max-specificity": "1, 1, 1",
+        ```
+
+    * Max number of universal (`*`) and ID selectors in a selector equals to 1. Universal selector lower performance of CSS, while ID selectors should be used rarely.
+
+        Rules: 
+        ```json
+        "selector-max-id": 1,
+        "selector-max-universal": 1,
+        ```
+
+    * Max number of of attribute selectors or pseudo-classes is limited to 2 as properly added classes to elements within modular components resolve problems with selecting desired elements.
+
+        Rules: 
+        ```json
+        "selector-max-attribute": 2,
+        "selector-max-pseudo-class": 2,
+        ```
+
+    * Selectors required for maintanable and scalable template shouldn't be to long. 4 elements long selectors is enough. It could contain elements listed in previous points or be builed from only type selectors or classes. 4 elements long selector means that only 3 combinators are allowed.
+
+        Rules: 
+        ```json
+        "selector-max-combinators": 3,
+        "selector-max-class": 4,
+        "selector-max-compound-selectors": 4,
+        "selector-max-type": 4,
+        ```
 
 4. Attribute selectors
-    * There is no black- or whitelist of attributes' operators defined. All provided by CSS are allowed - rules NOT USED:  
-    `"selector-attribute-operator-allowed-list": []`  
-    `"selector-attribute-operator-disallowed-list": []`.
-    * Attribute selector should be placed in square brackets without any whitespace inside them and attribute value shoud be wrpeed with quotes - rules:
-    `"selector-attribute-brackets-space-inside": "never"`  
-    `"selector-attribute-operator-space-after": "never"`  
-    `"selector-attribute-operator-space-before": "never"`  
-    `"selector-attribute-quotes": "always"`.
+    * There is no black- or whitelist of attributes' operators defined. All provided by CSS are allowed.
 
-        Example
+        Rules NOT USED: 
+        ```json
+        "selector-attribute-operator-allowed-list": [],
+        "selector-attribute-operator-disallowed-list": [],
+        ```
+
+    * Attribute selector should be placed in square brackets without any whitespace inside them and attribute value shoud be wrpeed with quotes.
+
+        Rules: 
+        ```json
+        "selector-attribute-brackets-space-inside": "never",
+        "selector-attribute-operator-space-after": "never",
+        "selector-attribute-operator-space-before": "never",
+        "selector-attribute-quotes": "always",
+        ```
+
+        Example:
         ```css
         input[type="text"] {
             padding: 0 0.5em;
         }
         ```
-    * As attribute selectors cannot be taken classes and ids names - rule: `"selector-attribute-name-disallowed-list": ["class", "id"]`.
+    * As attribute selectors cannot be taken classes and ids names.
+
+        Rule: 
+        ```json
+        "selector-attribute-name-disallowed-list": ["class", "id"],
+        ```
 
 5. Pseudo-classes and pseudo-elements
-    * There is no black- or whitelist of pseudo-classes and psuedo-elements defined. All provided by CSS are allowed - rules NOT USED:  
-    `"selector-pseudo-class-allowed-list": []`  
-    `"selector-pseudo-class-disallowed-list": []`  
-    `"selector-pseudo-element-allowed-list": []`  
-    `"selector-pseudo-element-disallowed-list": []`.
-    * When using parentheses within pseudo-class there shouldn't be whitespace inside them - rule: `"selector-pseudo-class-parentheses-space-inside": "never"`.
+    * There is no black- or whitelist of pseudo-classes and psuedo-elements defined. All provided by CSS are allowed.
+
+        Rules NOT USED: 
+        ```json
+        "selector-pseudo-class-allowed-list": [],
+        "selector-pseudo-class-disallowed-list": [],
+        "selector-pseudo-element-allowed-list": [],
+        "selector-pseudo-element-disallowed-list": [],
+        ```
     
-        Example
+    * When using parentheses within pseudo-class there shouldn't be whitespace inside them.
+
+        Rule: 
+        ```json
+        "selector-pseudo-class-parentheses-space-inside": "never",
+        ```
+    
+        Example:
         ```css
         input:not([type="text"] ) {
             padding: 0 0.5em;
         }
         ```
-    * There should be used double colon notation for pseudo-elements - rule: `"selector-pseudo-element-colon-notation": "double"`.
+    * There should be used double colon notation for pseudo-elements.
 
-        Example
+        Rule: 
+        ```json
+        "selector-pseudo-element-colon-notation": "double",
+        ```
+
+        Example:
         ```css
         button:hover {
             backgroun-color: hsl(24, 100%, 50%);
@@ -333,14 +496,18 @@ Colon separates property and its value.
         ```
 
 6. Selectors lists
-    * Every selector in a selector list should be added in a new line, no white space before comma and no empty lines between adjacent selectors - rules:  
-    `"selector-list-comma-newline-after": "always"`  
-    `"selector-list-comma-newline-before": "never-multi-line"`  
-    `"selector-list-comma-space-after": "always-single-line"`  
-    `"selector-list-comma-space-before": "never"`  
-    `"selector-max-empty-lines": 0`
+    * Every selector in a selector list should be added in a new line, no white space before comma and no empty lines between adjacent selectors.
 
-        Example
+        Rules: 
+        ```json
+        "selector-list-comma-newline-after": "always",
+        "selector-list-comma-newline-before": "never-multi-line",
+        "selector-list-comma-space-after": "always-single-line",
+        "selector-list-comma-space-before": "never",
+        "selector-max-empty-lines": 0,
+        ```
+
+        Example:
         ```css
         .class-6-6-A,
         .class-6-6-B {
@@ -352,78 +519,142 @@ Colon separates property and its value.
 ## 7. Declaration blocks
 
 1. General rules:
-    * Empty block, even without comment, are not allowed - rule: `"block-no-empty": true`
+    * Empty block, even without comment, are not allowed.
 
-        Example
+        Rule: 
+        ```json
+        "block-no-empty": true,
+        ```
+
+        Example:
         ```css
         .class-7-1-1 {
             /* comment */
         }
         ```
 
-        Example of NOT allowed styling
+        Example of NOT allowed styling:
         ```css
         .class-7-1-2 {}
         .class-7-1-3 { }
         ```
-    * Only one declaration per line is allowed, each line ends with semicolon (directly after value) and newline (end-of-line comment followed by a newline is exception) - rules:  
-        `"declaration-block-single-line-max-declarations": 1`  
-        `"declaration-block-semicolon-newline-after": "always"`  
-        `"declaration-block-semicolon-newline-before": "never-multi-line"`  
-        `"declaration-block-semicolon-space-after": "always-single-line"`  
-        `"declaration-block-semicolon-space-before": "never"`  
-        `"declaration-block-trailing-semicolon": "always"`.  
+
+    * Only one declaration per line is allowed, each line ends with semicolon (directly after value) and newline (end-of-line comment followed by a newline is exception).
+
+        Rules: 
+        ```json
+        "declaration-block-single-line-max-declarations": 1,
+        "declaration-block-semicolon-newline-after": "always",
+        "declaration-block-semicolon-newline-before": "never-multi-line",
+        "declaration-block-semicolon-space-after": "always-single-line",
+        "declaration-block-semicolon-space-before": "never",
+        "declaration-block-trailing-semicolon": "always",
+        ``` 
 
 2. Braces:
-    * Opening brace must be in the same line as selector separated with signle space. After brace newline is required - rules:  
-        `"block-opening-brace-newline-after": "always"`  
-        `"block-opening-brace-newline-before": "never-single-line"`  
-        `"block-opening-brace-space-after": "never"`  
-        `"block-opening-brace-space-before": "never"`.
-    * Closing brace must be placed in the newline directyly under last declaration and followed by newline - rules:  
-        `"block-closing-brace-empty-line-before": "never"`  
-        `"block-closing-brace-newline-after": "always-multi-line"`  
-        `"block-closing-brace-newline-before": "always"`  
-        `"block-closing-brace-space-after": "always-single-line"`  
-        `"block-closing-brace-space-before": "never"`.
+    * Opening brace must be in the same line as selector separated with signle space. After brace newline is required.
+
+        Rules: 
+        ```json
+        "block-opening-brace-newline-after": "always",
+        "block-opening-brace-newline-before": "never-single-line",
+        "block-opening-brace-space-after": "never",
+        "block-opening-brace-space-before": "never",
+        ``` 
+
+    * Closing brace must be placed in the newline directyly under last declaration and followed by newline.
+
+        Rules: 
+        ```json
+        "block-closing-brace-empty-line-before": "never",
+        "block-closing-brace-newline-after": "always-multi-line",
+        "block-closing-brace-newline-before": "always",
+        "block-closing-brace-space-after": "always-single-line",
+        "block-closing-brace-space-before": "never",
+        ```
 
 3. Properties:
-    * Duplicated properties are not allowed - rule: `"declaration-block-no-duplicate-properties": true`.
+    * Duplicated properties are not allowed.
+
+        Rule: 
+        ```json
+        "declaration-block-no-duplicate-properties": true,
+        ```
 
 ## 8. Declarations
 
 1. General rules
-    * There is no black- or whitelist of property-unit or property-value defined. All provided by CSS are allowed - rules NOT USED:  
-    `"declaration-property-unit-allowed-list": {}`  
-    `"declaration-property-unit-disallowed-list": {}`  
-    `"declaration-property-value-allowed-list": {}`  
-    `"declaration-property-value-disallowed-list": {}`.  
-    * In general using `!important` is not allowed. When necessary to use signle space before before and no whitespace after bang is allowed - rules:  
-    `"declaration-no-important": true`  
-    `"declaration-bang-space-after": "never"`  
-    `"declaration-bang-space-before": "always"`.  
-    * No empty line before declaration is allowed - rule: `"declaration-empty-line-before": "never"`.
+    * There is no black- or whitelist of property-unit or property-value defined. All provided by CSS are allowed.
+
+        Rules NOT USED: 
+        ```json
+        "declaration-property-unit-allowed-list": {},
+        "declaration-property-unit-disallowed-list": {},
+        "declaration-property-value-allowed-list": {},
+        "declaration-property-value-disallowed-list": {},
+        ``` 
+
+    * In general using `!important` is not allowed. When necessary to use signle space before before and no whitespace after bang is allowed.
+
+        Rules: 
+        ```json
+        "declaration-no-important": true,
+        "declaration-bang-space-after": "never",
+        "declaration-bang-space-before": "always",
+        ``` 
+
+    * No empty line before declaration is allowed.
+
+        Rule: 
+        ```json
+        "declaration-empty-line-before": "never",
+        ```
+
 2. Syntax
-    * If declaration is short should be written in one line with single space only after colon. When value is too long to fit one line, then newline after property colon is required - rules:  
-    `"declaration-colon-newline-after": "always-multi-line"`  
-    `"declaration-colon-space-after": "always-single-line"`  
-    `"declaration-colon-space-before": "never"`.
+    * If declaration is short should be written in one line with single space only after colon. When value is too long to fit one line, then newline after property colon is required.
+
+        Rules: 
+        ```json
+        "declaration-colon-newline-after": "always-multi-line",
+        "declaration-colon-space-after": "always-single-line",
+        "declaration-colon-space-before": "never",
+        ```
 
 ## 9. Properties
 
 1. General rules
-    * There is no black- or whitelist of properties. All provided by CSS are allowed - rules NOT USED:  
-    `"property-allowed-list": []`  
-    `"property-disallowed-list": []`.
-    * There is no pattern for custom property defined - rules NOT USED:  
-    `"custom-property-empty-line-before": "always"`  
-    `"custom-property-pattern": ""`.
+    * There is no black- or whitelist of properties. All provided by CSS are allowed.
+
+        Rules NOT USED: 
+        ```json
+        "property-allowed-list": [],
+        "property-disallowed-list": [],
+        ```
+
+    * There is no pattern for custom property defined.
+
+        Rules NOT USED: 
+        ```json
+        "custom-property-empty-line-before": "always",
+        "custom-property-pattern": "",
+        ```
 
 2. Shorthand properties
-    * Redundand values in shorthand properties are not allowed - rule: `"shorthand-property-no-redundant-values": true`.
-    * Shorthand properties cannot override longhand properties - rule: `"declaration-block-no-shorthand-property-overrides": true`.
+    * Redundand values in shorthand properties are not allowed.
 
-        Example of NOT allowed styling
+        Rule: 
+        ```json
+        "shorthand-property-no-redundant-values": true,
+        ```
+
+    * Shorthand properties cannot override longhand properties.
+
+        Rule: 
+        ```json
+        "declaration-block-no-shorthand-property-overrides": true,
+        ```
+
+        Example of NOT allowed styling:
         ```css
         .class-7-2-1 {
             margin-left: 20px;
@@ -431,9 +662,14 @@ Colon separates property and its value.
         }
         ```
 3. Longhand properties
-    * There is no restriction in using longhand properties that could be combined into shorthand properties - rule NOT USED: `"declaration-block-no-redundant-longhand-properties": true`.
+    * There is no restriction in using longhand properties that could be combined into shorthand properties.
 
-        Example
+        Rule NOT USED: 
+        ```json
+        "declaration-block-no-redundant-longhand-properties": true,
+        ```
+
+        Example:
         ```css
         .class-7-2-1 {
             margin-top: 10px;
@@ -450,35 +686,81 @@ Colon separates property and its value.
 ## 10. Values
 
 1. List of values
-    * Values list should be placed in one line or each value in a new line. Directly after each value comma. In one line list single space after comma. No empty lines between values - rules:  
-        `"value-list-comma-newline-after": "always-multi-line"`  
-        `"value-list-comma-newline-before": "never-multi-line"`  
-        `"value-list-comma-space-after": "always-single-line"`  
-        `"value-list-comma-space-before": "never"`  
-        `"value-list-max-empty-lines": 0`.
+    * Values list should be placed in one line or each value in a new line. Directly after each value comma. In one line list single space after comma. No empty lines between values.
+
+        Rules: 
+        ```json
+        "value-list-comma-newline-after": "always-multi-line",
+        "value-list-comma-newline-before": "never-multi-line",
+        "value-list-comma-space-after": "always-single-line",
+        "value-list-comma-space-before": "never",
+        "value-list-max-empty-lines": 0,
+        ```
     
 2. Strings
-    * Strings could not have unescaped newline - rule: `"string-no-newline": true`.
-    * Strings must be wrapped with double quotes - rule: `"string-quotes": "double"`.
+    * Strings could not have unescaped newline.
+
+        Rule: 
+        ```json
+        "string-no-newline": true,
+        ```
+
+    * Strings must be wrapped with double quotes.
+
+        Rule: 
+        ```json
+        "string-quotes": "double",
+        ```
 
 3. Numbers
-    * For numbers less than 1 leading zero is required - rule: `"number-leading-zero": "always"`.
-    * Trailing zero is forbidden - rule: `"number-no-trailing-zeros": true`.
-    * Max number precision is 3 decimal places - rule: `"number-max-precision": "3"`.
+    * For numbers less than 1 leading zero is required.
+
+        Rule: 
+        ```json
+        "number-leading-zero": "always",
+        ```
+
+    * Trailing zero is forbidden.
+
+        Rule: 
+        ```json
+        "number-no-trailing-zeros": true,
+        ```
+
+    * Max number precision is 3 decimal places.
+
+        Rule: 
+        ```json
+        "number-max-precision": "3",
+        ```
 
 4. Other
-    * There is not specified minimum time for animations and transitions - rule NOT USED: `"time-min-milliseconds": 100`.
+    * There is not specified minimum time for animations and transitions.
+
+        Rule NOT USED: 
+        ```json
+        "time-min-milliseconds": 100,
+        ```
 
 ## 11. Units
 
 1. Unit black-/whitelist
-    * There is do defined black-/whitelist of available units - rules NOT USED:  
-        `"unit-allowed-list": []`   
-        `"unit-disallowed-list": []`. 
+    * There is do defined black-/whitelist of available units.
+
+        Rules NOT USED: 
+        ```json
+        "unit-allowed-list": [],
+        "unit-disallowed-list": [],
+        ```
 
 2. Value - unit pairs
-    * Zero length value (em, ex, ch, vw, vh, cm, mm, in, pt, pc, px, rem, vmin, and vmax) must be written without unit - rule: `"length-zero-no-unit": true`.  
-    
+    * Zero length value (em, ex, ch, vw, vh, cm, mm, in, pt, pc, px, rem, vmin, and vmax) must be written without unit.
+
+        Rule: 
+        ```json
+        "length-zero-no-unit": true,
+        ```
+
         Example:
         ```css
         .class-name {
@@ -493,7 +775,7 @@ Colon separates property and its value.
     * There should be used hsl()/hsla() function to set colours in stylesheets. This is easiest way for colour to be recognized as only one variable - angle of colour circle must be known. Second way to set colour for elements is to use rgb()/rgba() function. However, this function make matching code with rendered colour a lot harder. Hex or named colours in stylesheets are not welcomed - rules:  
         `"color-named": "never"`  
         `"color-no-hex": true`.  
-    
+
         rules NOT USED, as hex colours are not allowed:  
         `"color-hex-length": "long"`  
         `"color-hex-case": "lower"`  
