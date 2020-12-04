@@ -699,5 +699,39 @@ Colon separates property and its value.
     * `!important` keyword is not allowed within keyframe declarations (some browsers ignore it) - rule: `"keyframe-declaration-no-important": true`.
     * There is restrictions regarding naming keyframes - rule NOT USED: `"keyframes-name-pattern": ""`.
 
-## 19. Further development
+## 19. Properties order
+
+1. There are two major ways to order CSS properties:
+    * by type
+    * alphabetically.  
+    Third way is random order of properties. It shouldn't be used anywhere as much more consuming to understand code and predict effects.  
+    Practise showed that grouping properties by type is much more effective and simplier to develop and maintain code than alphabetical order. This styleguide recommends property-type order.
+2. To force using proper order of properties, there is used `stylelint` plugin `stylelint-order`. Autofixing is enabled. Ruleset inner order and properties order is defined in file `.stylelintrc.json` at the end.
+3. Order within rulesets:
+    * custom properties (CSS variables): `--primaryMargin: 10px 20px;`
+    * dollar variables (Sass variables): `$mainColour: hsl(25, 30%, 30%);`
+    * declarations: `font-weight: 400;`
+    * nested rules: `p {...}`
+    * media rules: `@media () {...}`
+    * other
+4. Order of properties (declarations point on list above) is determined by effects of given group on layout of styled page. The most important properties concern positioning and sizing elements. Next are rules affecting visual side of style like animations, backgrounds and colours. Typography and rest of properties should be at the end of declarations. Similar properties like `font-*, text-*` should be grouped together. Longhand properties eg. `margin-*, border-*` are ordered clockwise according to values of shorthand properties: `*-top, *-right, *-bottom, *-left`.
+5. List of properties groups:
+    * content - `content`
+    * layout - `position, float, clear, z-index`
+    * display - `display, transform, perpective`
+    * grid-flex - `grid, flex, justify-content, align-items, order`
+    * box-model - `box-sizing, width, margin, border, padding, outline, vertical-align`
+    * visibility - `oberflow, clip, visibility, opacity`
+    * animation-transition - `animation, transition`
+    * background-shadow - `background, box-shadow`
+    * colours - `color, filter`
+    * typography - `font-*, text-*, word-*, list-style`
+    * other - `cursor`
+
+**Description of each group**
+
+6. "Other" group is not listed in `.stylelintrc.json` file as library accepts unknown entries but they must be placed below known ones. As there are rarely used properties alphabetical order is required.
+7. Neither groups of properties nor properties should be divided with empty lines.
+
+## 20. Further development
 **Sass specific rules: mixins, nesting, variables - decide where to set**
