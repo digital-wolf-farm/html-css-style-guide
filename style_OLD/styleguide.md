@@ -1,29 +1,6 @@
 # Style guide for CSS, Sass/SCSS
 
-## 0. Intro
-
-Rules are provided for usage with `stylelint` npm package.
-File `.stylelintrc.json` contains rules in the same order as described in this style guide.
-
 ## 1. Overview
-
-1. Every front-end project should be developed using [Progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement) strategy. HTML is responsible for content layer of web page or app, CSS is presentional layer, while JavaScript is responsible for behaviour layer. They should be separated from each other. Content layer shouldn't know anything about presence and presence about behaviour. That results in:
-    * HTML templates import external stylesheets
-    * HTML templates shouldn't contain any inline styles. Style part in head section of template is forbidden, too
-    * If some part of page or app isn't a content, it definitely shouldn't be placed in template - use stylesheet instead
-    * All style should be placed in stylesheets
-    * Many stylesheets used for easier development should be concatenate into one, then imported before using in production environment
-    * JS shouldn't add any styles. Responsibility of logic layer is only to add/remove class styled in a stylesheet to/from template element as a reaction to an event
-
-    >Why?  
-    >* It makes project easy to develop, read and maintain - see next point.  
-    >* Project is consistent with separation of concerns design principle.
-
-2. Every rule described here is aimed at time saving and ease of starting with project, its development even after long time, adding new functionality, cooperation with other memebers of team,understanding of developer intentions and fixing bugs. Since now, this reason of adding a new rule will be ommited as obvious.
-
-3. Start a new project with considered architecture. It costs more time at start but brings much more savings of time and nerves in the future. Macro-architecture is described in section 2 of this style guide, all next sections are about micro-architecture of projects.
-
-4. Usage of tools to handle CSS code to lint, concatenate, add vendor prefixes before sharing it from production server it a must-have nowadays.
 
 5. Every book I've read about CSS mentions that using CSS as long as it possible is better than using preprocessors like Sass. In tiny projects it makes sense. However, partials, mixins, functions, build-in minification of code and more are too big advantage to not use Sass with SCSS syntax. I prefer Sass even in not so big projects. 
 

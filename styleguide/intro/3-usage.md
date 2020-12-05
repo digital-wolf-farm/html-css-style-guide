@@ -47,5 +47,9 @@
         ```
     * Plugins' rules are added at the bottom of list and usually are prefixed by authors.
     * File doesn't contain all available rules. Style guide lists all used and not used rules in proper sections.
-    * File could be modified freely or replaced with rules better suited to your project requirements. 
+    * File could be modified freely or replaced with rules better suited to your project requirements.
+
+4. Convention of this Style guide
+
+    **ToDo: Develop this section**
         

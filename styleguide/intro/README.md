@@ -3,3 +3,4 @@
 * [Preface](1-preface.md)
 * [Changelog](2-changelog.md)
 * [How to use this style guide](3-usage.md)
+* [Frontend in few words](4-frontend.md)
