@@ -17,9 +17,9 @@
             "stylelint-fix": "stylelint \"src/**/*.css\" --fix",
             ```
 
-            Of course, path have to be adjusted to your project directory structure. Command above will lint all CSS files in all directories located in `src` directory. Second command will fix stylesheets for rules with auto fix option - see [documentation](https://stylelint.io/user-guide/rules).
+            Of course, path have to be adjusted to your project directory structure. Command above will lint all CSS files in all directories located in `src` directory. Second command will fix stylesheets for rules with auto fix option - see [documentation](https://stylelint.io/user-guide/rules/list).
 
-        * If work with SCSS files (what are `*.scss` files will be explained in chapter about Sass):
+        * If work with SCSS files (what are `*.scss` files will be explained in chapter about Sass, how to start using Sass in own project - open appendix):
 
             ```json
             "stylelint": "stylelint \"src/**/*.scss\" --syntax scss",
@@ -27,4 +27,25 @@
             ```
 
     * Add file `.stylelintrc.json` with rules to directory where `package.json` file is located.
-    * Run command `npm run stylelint` or `npm run stylelint-fix` to get results of linting;
+    * Run command `npm run stylelint` or `npm run stylelint-fix` to get results of linting.
+
+3. `.stylelintrc.json` explained in few words
+
+    * All used plugins and rules for `Stylelint` are place in this file.
+    * It could have other name and more options added - see [documentation](https://stylelint.io).
+    * Available plugins are listed [here](https://github.com/stylelint/awesome-stylelint#plugins).
+    * Documents for all rules are [here](https://stylelint.io/user-guide/rules/list).
+    * This file consists of two parts - array of used plugins and object containing list of all used rules.
+
+        ```json
+        {
+            "plugins": [
+                "stylelint-order"
+            ],
+            "rules": {}
+        }
+        ```
+    * Plugins' rules are added at the bottom of list and usually are prefixed by authors.
+    * File doesn't contain all available rules. Style guide lists all used and not used rules in proper sections.
+    * File could be modified freely or replaced with rules better suited to your project requirements. 
+        

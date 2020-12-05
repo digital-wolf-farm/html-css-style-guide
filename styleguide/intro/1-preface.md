@@ -2,6 +2,8 @@
 
 It took a while to get to this style guide from need of coding better stylesheets. Firstly, there was an idea to create own CSS library that is not only my design added to existing one, but such one that saves a little of template elements (still under construction as long break was taken). Then I wanted to know more on more advanced usage of CSS and best practices. So few books and many articles later I started using [Stylelint](https://stylelint.io) with plugins to lint stylesheets in my personal and professional projects. However, preparing rules (reviewed and tested almost 200) for my own usage is no a big deal. Preparing document explaining those rules to other is a challenge. Two first documents with short description was not what I expected, as not explaining everything to non-frontend developers. This repo is third approach to more descriptive style guide with addition of `Stylelint` rules.
 
+This style guide describe much more aspects of CSS code than `Stylelint` rules cover, so it's always developer/reviewer responsibility to push "perfect" code to repo.
+
 It's my knowledge and experience with front-end technologies merge into one document. Starting point for any project using HTML and/or CSS. If anyone but me use this styleguide to write better code, I'll be more than happy.
 
 Unfortunately, I haven't found linter for HTML code with such support as `Stylelint`, so applying rules is only available by developers and checked during manual reviews of code.
