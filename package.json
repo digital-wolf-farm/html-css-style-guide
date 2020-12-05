@@ -1,0 +1,33 @@
+{
+    "name": "html-css-style-guide",
+    "version": "0.1.0",
+    "description": "HTML CSS Style Guide",
+    "main": "index.js",
+    "directories": {
+        "example": "examples"
+    },
+    "scripts": {
+        "stylelint": "stylelint \"examples/*.css\"",
+        "stylelint-sass": "stylelint \"examples/*.scss\" --syntax scss"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/digital-wolf-farm/html-css-style-guide.git"
+    },
+    "keywords": [
+        "HTML",
+        "CSS",
+        "Sass",
+        "styleguide"
+    ],
+    "author": "dwf",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/digital-wolf-farm/html-css-style-guide/issues"
+    },
+    "homepage": "https://github.com/digital-wolf-farm/html-css-style-guide#readme",
+    "devDependencies": {
+        "stylelint": "^13.8.0",
+        "stylelint-order": "^4.1.0"
+    }
+}
