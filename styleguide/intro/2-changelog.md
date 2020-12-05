@@ -1,6 +1,15 @@
 ### Changelog
 
-1. Libraries version
+1. Environment
+
+    Tested with:
+
+    ```json
+    "node": "12.18.2",
+    "npm": "6.14.5"
+    ```
+
+2. Libraries version
 
     ```json
     "stylelint": "13.8.0",
