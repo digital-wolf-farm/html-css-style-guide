@@ -1,15 +1,16 @@
-# Style guides
+# HTML and CSS/Sass Style Guide
 
-Style guides for HTML, CSS/Sass, JS.
+Current version of style guide:
+```json
+0.1.0
+```
 
-## Style guide for HTML
+## Table of content
 
-Style guide for HTML.
-
-## Style guide for CSS and Sass/SCSS.
-
-For more details go to `style` directory and open `README.md` file. 
-
-## Style guide for JavaScript
-
-Style guide for JS.
+1. [Intro](intro/README.md)
+2. [Common style guide](common/README.md)
+3. [HTML style guide](html/README.md)
+4. [CSS style guide](css/README.md)
+5. [Sass style guide](sass/README.md)
+6. Appendix A - Sass into CSS
+7. Appendix B - Modifying rules

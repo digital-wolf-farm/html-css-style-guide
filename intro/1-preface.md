@@ -1,0 +1,7 @@
+### Preface
+
+It took a while to get to this style guide from need of coding better stylesheets. Firstly, there was an idea to create own CSS library that is not only my design added to existing one, but such one that saves a little of template elements (still under construction as long break was taken). Then I wanted to know more on more advanced usage of CSS and best practices. So few books and many articles later I started using [Stylelint](https://stylelint.io) with plugins to lint stylesheets in my personal and professional projects. However, preparing rules (reviewed and tested almost 200) for my own usage is no a big deal. Preparing document explaining those rules to other is a challenge. Two first documents with short description was not what I expected, as not explaining everything to non-frontend developers. This repo is third apporach to more descriptive style guide with addition of `Stylelint` rules.
+
+Unfortunately, I haven't found linter for HTML code with such support as `Stylelint`, so applying rules is only available by developers and checked during manual reviews of code.
+
+It's a living document, so changes are more than possible. To make it easier and not be forced to read whole style guide with every change, there is changelog describing what important was changes like updating version of dependencies, changed rules or added/modified content. On the other hand, correcting typos, improving examples or improving quality of text without changing meaning are not essential and will be introduced without notifications.
