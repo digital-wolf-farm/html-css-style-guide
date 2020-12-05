@@ -533,10 +533,10 @@ Colon separates property and its value.
 
         Rules: 
         ```json
-        "block-opening-brace-newline-after": "always",
+        "block-opening-brace-newline-after": "always-multi-line",
         "block-opening-brace-newline-before": "never-single-line",
-        "block-opening-brace-space-after": "never",
-        "block-opening-brace-space-before": "never",
+        "block-opening-brace-space-after": "always-single-line",
+        "block-opening-brace-space-before": "always",
         ``` 
 
     * Closing brace must be placed in the newline directyly under last declaration and followed by newline.
@@ -544,10 +544,10 @@ Colon separates property and its value.
         Rules: 
         ```json
         "block-closing-brace-empty-line-before": "never",
-        "block-closing-brace-newline-after": "always-multi-line",
-        "block-closing-brace-newline-before": "always",
+        "block-closing-brace-newline-after": "always",
+        "block-closing-brace-newline-before": "always-multi-line",
         "block-closing-brace-space-after": "always-single-line",
-        "block-closing-brace-space-before": "never",
+        "block-closing-brace-space-before": "always-single-line",
         ```
 
 3. Properties:
@@ -708,7 +708,7 @@ Colon separates property and its value.
 
         Rule: 
         ```json
-        "number-max-precision": "3",
+        "number-max-precision": 3,
         ```
 
 4. Other
