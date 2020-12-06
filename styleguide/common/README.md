@@ -24,7 +24,7 @@
         "unicode-bom": "never",
         ```
 
-    * Line ending
+    * Line ending  
         Set one line ending for all files on all computers commiting to project. For Linux and macOS it's LF, while for Windows it's CRLF.
 
         Stylelint rule:
@@ -34,7 +34,7 @@
 
 3. Document structure
 
-    * Empty files
+    * Empty files  
         Do not add empty files to project until have content to fill them. If it's required for future development add proper comment inside it.
 
         Stylelint rule: 
@@ -42,10 +42,10 @@
         "no-empty-source": true,
         ```
 
-    * Lines number per file
+    * Lines number per file  
         For JavaScript such rule can be set, for templates and stylesheet it not so easy as it depends on content. General rule says try to keep files as short as possible. Put not related code into separated files. With project growing into enterprise scale more files are welcomed.
     
-    * Line length
+    * Line length  
         Line length equal to 80 characters is proper to be readable and allow to open two files on average screen next to each other without scrolling. This rule is more for HTML documents. More details about wrapping code - see: HTML Style Guide.
 
         Stylelint rule: 
@@ -53,7 +53,7 @@
         "max-line-length": 80,
         ```
 
-    * Indentation
+    * Indentation  
         There are as many opinions as many are developers. This style guide recommend indentation equals to 4 spaces as more readable.
 
         Stylelint rule: 
@@ -61,7 +61,7 @@
         "indentation": 4,
         ```
     
-    * First line
+    * First line  
         Do not leave empty first line. If there is no need to add comment or import at the begin, start coding from the first line.
 
         Stylelint rule: 
@@ -69,7 +69,7 @@
         "no-empty-first-line": true,
         ```
     
-    * Last line
+    * Last line  
         All files should be ended with empty line.
 
         Stylelint rule: 
@@ -77,7 +77,7 @@
         "no-missing-end-of-source-newline": true,
         ```
 
-    * Empty lines between code
+    * Empty lines between code  
         One empty line to divide code visually into sections is enough.
 
         Stylelint rule: 
@@ -85,7 +85,7 @@
         "max-empty-lines": 1,
         ```
 
-    * Trailing whitespace
+    * Trailing whitespace  
         No trailing whitespace is allowed.
 
         Stylelint rules: 
@@ -95,7 +95,7 @@
 
 4. Other common rules
 
-    * Letter case
+    * Letter case  
         All code should be written in lowercase:
         * HTML - tags, attributes, values;
         * CSS - at-rules, media features, functions, selectrors, properties, values and units.
@@ -114,7 +114,7 @@
         "value-keyword-case": "lower",
         ```
     
-    * Typos
+    * Typos  
         To code works as expected, it's important to check all typos. Unfortunately checking HTML file same as ids and classes name is manual work.
 
         Stylelint rules: 
@@ -129,7 +129,7 @@
         "unit-no-unknown": true,
         ```
 
-    * Protocols
+    * Protocols  
         Do not omit protocol in urls not stored locally.
 
         ```html
