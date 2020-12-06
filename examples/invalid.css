@@ -3,6 +3,61 @@
 
 
 /* Comment longer than 80 characters per line - Comment longer than 80 characters per line */
-.class-3-1 {
+.class31 {
   font-size: 16px; 
+}
+
+.class32 {
+    display: Block;
+    margin: Calc(2em - 10PX);
+    Color: #FFF;
+}
+
+.class32:Hover {
+    color: beige;
+}
+
+SPAN::AFTER {
+    content: "<3";
+}
+
+@MEDIA screen and (MIN-WIDTH: 1200px) {
+    .class32 {
+        margin: CALC(3em - 10px);
+    }
+}
+
+@unknown screen and (min-width: 960px) {
+    spann {
+        widh: 10pixels;
+    }
+}
+
+@media screen and (minimum-width: 960px) {
+    span {
+        width: 10px;
+    }
+}
+
+.class33:above {
+    color: hsl(90, 100%, 50%);
+}
+
+.class33::behind {
+    content: "<3";
+}
+
+@keyframes bouncing {}
+
+.ball {
+    animation-name: boncing;
+}
+
+@-webkit-keyframes bouncingVendor {}
+
+@media screen and (-webkit-min-device-pixel-ratio: 1) {}
+
+input::-moz-placeholder {
+    display: -webkit-flex;
+    -webkit-filter: blur(1px);
 }

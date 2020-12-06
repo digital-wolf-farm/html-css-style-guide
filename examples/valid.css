@@ -4,3 +4,23 @@
 .class-3-1 {
     font-size: 16px;
 }
+
+.class32 {
+    display: block;
+    margin: calc(2em - 10px);
+    color: hsl(60, 100%, 50%);
+}
+
+.class32:hover {
+    color: hsl(90, 100%, 50%);
+}
+
+span::after {
+    content: "<3";
+}
+
+@media screen and (min-width: 1200px) {
+    .class32 {
+        margin: calc(3em - 10px);
+    }
+}
