@@ -2,6 +2,10 @@
 
 ## 1. Overview
 
+**Macro-architecture is described in section 2 of this style guide, all next sections are about micro-architecture of projects**
+
+4. Usage of tools to handle CSS code to lint, concatenate, add vendor prefixes before sharing it from production server is a must-have nowadays.
+
 5. Every book I've read about CSS mentions that using CSS as long as it possible is better than using preprocessors like Sass. In tiny projects it makes sense. However, partials, mixins, functions, build-in minification of code and more are too big advantage to not use Sass with SCSS syntax. I prefer Sass even in not so big projects. 
 
 ## 2. Project structure
