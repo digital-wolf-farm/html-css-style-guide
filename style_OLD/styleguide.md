@@ -21,72 +21,8 @@ It's important to choose one before start of development and stick to it until e
 
 ## 3. General stylesheet rules
 
-1. Stylesheet settings:
-    * Unicode Byte Order Mark should not be added in stylesheet as CSS files are read as UTF-8 by default by browsers.
-
-        Rule: 
-        ```json
-        "unicode-bom": "never",
-        ```
-
-    * Depending on system which developer is working on different version of line-ending should be set. For Linux and macOS it's LF, while for Windows it's CRLF.
-        
-        Rule: 
-        ```json
-        "linebreaks": "windows",
-        ```
-
 2. Structure of stylesheet file
-
-    * Except starter packs or presenting structure of project, there shouldn't be empty files in repository. Leaving such files could make it hard to understand project in the future.
-
-        Rule: 
-        ```json
-        "no-empty-source": true,
-        ```
-
-    * First line of stylesheet cannot be empty, it should be fulfilled with comments about conctent of file or imports.
-        
-        Rule: 
-        ```json
-        "no-empty-first-line": true,
-        ```
-
-    * Stylesheet should be ended with a new line.
-
-        Rule: 
-        ```json
-        "no-missing-end-of-source-newline": true,
-        ```
-
-    * One adjacent empty line is enough to divide visually code into parts.
-
-        Rule: 
-        ```json
-        "max-empty-lines": 1,
-        ```
-
-    * I found indentation equals to 4 spaces as more readable.
-
-        Rule: 
-        ```json
-        "indentation": 4,
-        ```
-
-    * Styles are not expanded as JavaScript code, so 80 characters of line lenght is enough and allow to open to stylesheets next to each other on average screen without scrolling.
-
-        Rule: 
-        ```json
-        "max-line-length": 80,
-        ```
-
-    * No whitespace at the end of line is allowed.
-
-        Rule: 
-        ```json
-        "no-eol-whitespace": true,
-        ```
-
+           
     * Nesting of rulesets introduced by Sass is nice feature which save a lot of code but in practice it should be avoided as introducing non reusable classes, non modular architecture and long selectors in output CSS files. Whole nested rulesets should as well be visible on screen to avoid poor readability. It should be used only with pseudo-classes, pseudo-elements and media queries. More about nesting in another sections. As general rule should be agreed max level of nesting limited to 2 (see: examples)
 
         Rule: 
@@ -124,36 +60,7 @@ It's important to choose one before start of development and stick to it until e
         }
         ```
 
-3. Writing code
-
-    * All names should be written in lowercase with hyphens (except selectors in BEM methodology).
-
-        Rules: 
-        ```json
-        "at-rule-name-case": "lower",
-        "function-name-case": "lower",
-        "media-feature-name-case": "lower",
-        "property-case": "lower",
-        "selector-pseudo-class-case": "lower",
-        "selector-pseudo-element-case": "lower",
-        "selector-type-case": "lower",
-        "unit-case": "lower",
-        "value-keyword-case": "lower",
-        ```
-
-    * It's important to check spelling errors in names used in stylesheets. While class or id names requires checking by developer manually, usage of valid and known type selectors, units, properties, etc. could be check by tools. Using known structures, names makes code easy to understand. All other things should be commented - see: `4. Documenting code`.
-
-        Rules: 
-        ```json
-        "at-rule-no-unknown": true,
-        "media-feature-name-no-unknown": true,
-        "no-unknown-animations": true,
-        "property-no-unknown": true,
-        "selector-pseudo-class-no-unknown": true,
-        "selector-pseudo-element-no-unknown": true,
-        "selector-type-no-unknown": true,
-        "unit-no-unknown": true,
-        ```
+3. Writing code 
     
     * Code written by developer shouldn't contain any vendor prefixes. As they are no longer recommended by W3C for new features and browsers dynamically changes it usage, adding prefixes should be reffered to automatic tools which base on updated database of support of available features.
 
