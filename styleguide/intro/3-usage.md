@@ -51,5 +51,7 @@
 
 4. Convention of this Style guide
 
-    **ToDo: Develop this section**
+    Each chapter describe different part of frontend technology stack (currently no JS Style Guide). Sections of chapters divide rules into common chunks. They are mostly ordered from outer to inner and top to bottom part of issue. Some exception may occurs intentionally or not.
+
+    Rules consists of short description and explaination if there is any reason aside from ones listed in next section. If description is not enough to explain rule, there is example of proper and wrong code (Chapter - Common style guide presents first exmaple in HTML, latter in CSS). If `Styleguide` provides proper rules, they are listed with information if some of them are not used.
         
