@@ -147,3 +147,6 @@
         /* Not recommended */
         @import "//font-cdn.com/awesome-font";
         ```
+
+    * Files size  
+        Always remove unnecessary code to make files lighter for downloading and faster for browsers
