@@ -95,26 +95,7 @@ It's important to choose one before start of development and stick to it until e
 
 ## 4. Structure of CSS ruleset
 
-Before moving further with this style guide, small stop for theory to get clear information about presented rules.
-
-Example of CSS ruleset:
-```css
-p {
-    color: #fef;
-    font-size: 16px;
-}
-```
-
-`p` - selector  
-`{ ... }` - declaration block  
-`color: #fef;` - declaration  
-`font-size` - property  
-`16px` - property value or just value
-
-Declaration block could concern selector or selectors list. When there is more than one selector in ruleset, they are separated by comma.  
 Declaration block wrap declarations with curly braces. No semi-colon after closing brace.  
-Declarations are separated by semi-colons.  
-Colon separates property and its value.
 
 ## 5. Rulesets
 
