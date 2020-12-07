@@ -61,17 +61,6 @@ It's important to choose one before start of development and stick to it until e
         ```
 
 3. Writing code 
-    
-    * Code written by developer shouldn't contain any vendor prefixes. As they are no longer recommended by W3C for new features and browsers dynamically changes it usage, adding prefixes should be reffered to automatic tools which base on updated database of support of available features.
-
-        Rules: 
-        ```json
-        "at-rule-no-vendor-prefix": true,
-        "media-feature-name-no-vendor-prefix": true,
-        "property-no-vendor-prefix": true,
-        "selector-no-vendor-prefix": true,
-        "value-no-vendor-prefix": true,
-        ```
 
     * After choosing methodology to make structure of project. If naming convention is not set, it's worth effort to create own for e.g. id or class names.
 
@@ -105,44 +94,6 @@ Declaration block wrap declarations with curly braces. No semi-colon after closi
         Rule: 
         ```json
         "no-extra-semicolons": true,
-        ```
-
-    * Between adjacent rulsets, there should be always an empty line. Exeption is first nested ruleset and ruleset after comment where there shouldn't empty line.
-
-        Rule: 
-        ```json
-        "rule-empty-line-before": [
-            "always-multi-line",
-            {
-                "except": [
-                    "first-nested"
-                ],
-                "ignore": [
-                    "after-comment"
-                ]
-            }
-        ],
-        ```
-
-        Example
-        ```css
-        //  A comment concerning ruleset
-        .class-5-1-C {
-            color: hsl(240, 100%, 50%);
-            font-size: 24px;
-        }
-
-        .class-5-1-D {
-            .class-5-1-E {
-                color: hsl(120, 100%, 50%);
-                font-size: 24px;
-            }
-
-            .class-5-1-F {
-                color: hsl(12, 100%, 50%);
-                font-size: 24px;
-            }
-        }
         ```
 
 

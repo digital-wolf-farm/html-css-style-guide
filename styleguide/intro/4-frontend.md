@@ -34,4 +34,4 @@
 
     This style guide aims to help archieve elements of good architecture.
 
-6. Always start a new project with considered architecture. It costs more time at start but brings much more savings of time and nerves in the future. I know what I'm talking about - I went through this few times. 
+6. Always start a new project with chosen architecture. It costs more time at start but brings much more savings of time and nerves in the future. I know what I'm talking about - I went through this few times. 
